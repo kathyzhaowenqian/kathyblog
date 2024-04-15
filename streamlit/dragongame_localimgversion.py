@@ -5,22 +5,18 @@ import json
 import anthropic
 import random
 import os
-from datetime import timedelta
-from minio import Minio
-import json
-
-
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'kathyblog.local_settings')
 # os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'kathyblog.publish_settings')
 
-# from img_compare import img_compare_dict
+from img_compare import img_compare_dict
+
 from django.conf import settings
 
 # from config.LLM_API import *
 # def main():
 
-minio_url = settings.MINIO_URL
-# st.image(image='{minio_url}/defeatant/3.png')
+
+st.image(image=settings.MINIO_URL+'/defeatant/3.png')
 
 #--------------------------------------------
 APIKEY=settings.APIKEY_OPENAI
@@ -31,16 +27,7 @@ client = anthropic.Anthropic(
     # defaults to os.environ.get("ANTHROPIC_API_KEY")
     api_key=settings.APIKEY_CLAUDE,
 )
-#----------------------
-MINIO_STORAGEENDPOINT =settings.MINIO_STORAGE_ENDPOINT
-MINIO_STORAGE_ACCESSKEY = settings.MINIO_STORAGE_ACCESS_KEY
-MINIO_STORAGE_SECRETKEY=settings.MINIO_STORAGE_SECRET_KEY
-MinioClient = Minio(MINIO_STORAGEENDPOINT,
-    access_key=MINIO_STORAGE_ACCESSKEY,
-    secret_key=MINIO_STORAGE_SECRETKEY,
-    secure=False
-)
-bucket='dragongame'
+
 SCENE_ORDER='''按顺序：
         1. 绿油油的田野;
         2. 森林;
@@ -75,7 +62,7 @@ ENDINGS='''
 
 
 
-def battle(bucket,current_scene,current_monster,adai, monster):
+def battle(current_scene,current_monster,adai, monster):
     while adai["HP"] > 0 and monster["HP"] > 0:
         deltaHP_MONSTER = max(0, adai["ATTACK"] - monster["DEFENCE"])
         monster["HP"] -= deltaHP_MONSTER
@@ -87,27 +74,22 @@ def battle(bucket,current_scene,current_monster,adai, monster):
             break
     if adai["HP"] <= 0:
         if current_scene=="绿油油的田野" and current_monster=="坏老鼠怪":
-            # img_path="streamlit/dragongame_images/lose_rat"
-            folder_name='lose-rat'
+            img_path="streamlit/dragongame_images/lose_rat"
         # elif current_scene=="绿油油的田野" and current_monster=="小蚂蚁怪":
         #     img_path="streamlit/dragongame_images/lose_ant"
         elif current_scene=="森林" and current_monster=="黄鼠狼":
-            # img_path="streamlit/dragongame_images/lose_weasel"
-            folder_name='lose-weasel'
+            img_path="streamlit/dragongame_images/lose_weasel"
         elif current_scene=="森林" and current_monster=="老鹰":
-            # img_path="streamlit/dragongame_images/lose_eagle"
-            folder_name='lose-eagle'
+            img_path="streamlit/dragongame_images/lose_eagle"
         elif current_scene=="森林" and current_monster=="毒蛇":
-            # img_path="streamlit/dragongame_images/lose_snake"
-            folder_name='lose-snake'
+            img_path="streamlit/dragongame_images/lose_snake"
         elif current_scene=="森林深处的城堡" and current_monster=="恶龙王":
-            # img_path="streamlit/dragongame_images/lose_dragon"
-            folder_name='lose-dragon'
+            img_path="streamlit/dragongame_images/lose_dragon"
         else:
-            # img_path="streamlit/dragongame_images/get_lost"
-            folder_name='get-lost'
-        full_img_path=image(bucket,folder_name)
- 
+            img_path="streamlit/dragongame_images/get_lost"
+        full_img_path=image(img_path)
+        # full_imag_url = img_compare_dict[full_img_path]
+
         if current_monster=="恶龙王":
             st.session_state['is_end']=True
         else:
@@ -132,27 +114,20 @@ def battle(bucket,current_scene,current_monster,adai, monster):
         deltalv= lv-adai["lv"]
         print('deltalv',deltalv)
         if current_scene=="绿油油的田野" and current_monster=="小蚂蚁怪":
-            # img_path="streamlit/dragongame_images/defeat_ant"
-            folder_name='defeat-ant'
+            img_path="streamlit/dragongame_images/defeat_ant"
         elif current_scene=="绿油油的田野" and current_monster=="坏老鼠怪":
-            # img_path="streamlit/dragongame_images/defeat_rat"
-            folder_name='defeat-rat'
+            img_path="streamlit/dragongame_images/defeat_rat"
         elif current_scene=="森林" and current_monster=="黄鼠狼":
-            # img_path="streamlit/dragongame_images/defeat_weasel"
-            folder_name='defeat-weasel'
+            img_path="streamlit/dragongame_images/defeat_weasel"
         elif current_scene=="森林" and current_monster=="老鹰":
-            # img_path="streamlit/dragongame_images/defeat_eagle"
-            folder_name='defeat-eagle'
+            img_path="streamlit/dragongame_images/defeat_eagle"
         elif current_scene=="森林" and current_monster=="毒蛇":
-            # img_path="streamlit/dragongame_images/defeat_snake"
-            folder_name='defeat-snake'
+            img_path="streamlit/dragongame_images/defeat_snake"
         elif current_scene=="森林深处的城堡" and current_monster=="恶龙王":
-            # img_path="streamlit/dragongame_images/defeat_dragon"
-            folder_name='defeat-dragon'
+            img_path="streamlit/dragongame_images/defeat_dragon"
         else:
-            # img_path="streamlit/dragongame_images/get_lost"
-            folder_name='get-lost'
-        full_img_path=image(bucket,folder_name)
+            img_path="streamlit/dragongame_images/get_lost"
+        full_img_path=image(img_path)
         if deltalv > 0:
             adai["lv"]=lv
             adai["HP"]=adai["HP"]*2**deltalv
@@ -181,36 +156,32 @@ monster_group={
                 "恶龙王":{"HP":100, "ATTACK":20, "DEFENCE":20,"exp":100}
             }
 
-def treasure(bucket,current_treasure,adai_current_profile):
+def treasure(current_treasure,adai_current_profile):
     if current_treasure=='苹果干':
         adai_current_profile['HP']+=20
         adai=adai_current_profile
-        # img_path="streamlit/dragongame_images/pick_apple"
-        folder_name='pick-apple'
-        full_img_path=image(bucket,folder_name)
+        img_path="streamlit/dragongame_images/pick_apple"
+        full_img_path=image(img_path)
         return full_img_path,adai,f'{current_treasure}可以补充阿呆能量, 让阿呆的HP增加20点, 阿呆更新属性为:{adai_current_profile}，阿呆变得更加强壮。'
 
     elif current_treasure=='大门牙':
         adai_current_profile['ATTACK']+=10
         adai=adai_current_profile
-        # img_path="streamlit/dragongame_images/pick_teeth"
-        folder_name='pick-teeth'
-        full_img_path=image(bucket,folder_name)
+        img_path="streamlit/dragongame_images/pick_teeth"
+        full_img_path=image(img_path)
         return full_img_path,adai,f'{current_treasure}可以增加阿呆的攻击力, 让阿呆的ATTACK增加10点, 阿呆更新属性为::{adai_current_profile}。'
 
     elif current_treasure=='笼子':
         adai_current_profile['DEFENCE']+=5
         adai=adai_current_profile
-        # img_path="streamlit/dragongame_images/pick_cage"
-        folder_name='pick-cage'
-        full_img_path=image(bucket,folder_name)
+        img_path="streamlit/dragongame_images/pick_cage"
+        full_img_path=image(img_path)
         return full_img_path,adai,f'{current_treasure}可以保护阿呆被小怪攻击, 让阿呆的DEFENCE增加5点, 阿呆更新属性为::{adai_current_profile}。'
 
     else:
         adai=adai_current_profile
-        # img_path="streamlit/dragongame_images/get_lost"
-        folder_name='get-lost'
-        full_img_path=image(bucket,folder_name)
+        img_path="streamlit/dragongame_images/get_lost"
+        full_img_path=image(img_path)
         return adai,f'该宝藏没有用,阿呆的属性依然是::{adai_current_profile}'       
 
 def GET_MONSTER_OR_TREASURE(next_scene):
@@ -243,18 +214,11 @@ def GET_MONSTER_OR_TREASURE(next_scene):
     else:
         return {"场景":next_scene,"小怪":"","宝藏":""}
     
-def image(bucket,folder_name):
-    # jpg_files = [f for f in os.listdir(img_path) if f.lower().endswith(('.jpg', '.jpeg', '.png'))]
-    # random_file = random.choice(jpg_files)
-    # full_file_path = os.path.normpath(os.path.join(img_path, random_file))
-    # return full_file_path
-    objects = MinioClient.list_objects(bucket,prefix=folder_name, recursive=True)
-    random_obj = random.choice(list(objects))
-    random_file=random_obj.object_name
-    print(random_file)
-    full_file_path = f'{minio_url}/{bucket}/{random_file}'
+def image(img_path):
+    jpg_files = [f for f in os.listdir(img_path) if f.lower().endswith(('.jpg', '.jpeg', '.png'))]
+    random_file = random.choice(jpg_files)
+    full_file_path = os.path.normpath(os.path.join(img_path, random_file))
     return full_file_path
-
 
 if 'rows' not in st.session_state:
     st.session_state['rows'] = 0
@@ -271,8 +235,7 @@ if 'rows' not in st.session_state:
             ''')
 
     st.markdown('对话框在 :red[最下方哦~] 👇👇👇')
-    # st.image('streamlit/dragongame_images/gamehead.jpg') 
-    st.image(f'{minio_url}/dragongame/gamehead.jpg')
+    st.image('streamlit/dragongame_images/gamehead.jpg') 
     st.session_state['messages']=[{"role": "assistant", "content":'阿呆，你现在正在一片广阔的田野中，如果想在田野里历练自己，请输入:"留在田野"；如果你想进入森林探索，请输入："前往森林"。'}]
     st.session_state['is_end']=False
     st.session_state['is_end_small']=False
@@ -296,10 +259,10 @@ for i in range(0,len(st.session_state['messages'])):
     if (isinstance(j, dict) and j.get('role') in ['assistant', 'user']):
         # print('j:::::',j)
         if j.get('role')=='user':
-            with st.chat_message(j['role'],avatar=f'{minio_url}/dragongame/adaihead.png'):
+            with st.chat_message(j['role'],avatar='streamlit/dragongame_images/adaihead.png'):
                 st.write(j['content'])
         if j.get('role')=='assistant':      
-            with st.chat_message("assistant",avatar=f'{minio_url}/dragongame/aguahead.png'):#,avatar='龙猫.png'
+            with st.chat_message("assistant",avatar='streamlit/dragongame_images/aguahead.png'):#,avatar='龙猫.png'
                 st.write(j['content'])
                 selected_image=[d for d in st.session_state['image_list'] if i in d]
                 # print('selected_image',selected_image)
@@ -314,10 +277,10 @@ if user_prompt:
     st.session_state['messages'].append({"role": "user", "content": user_prompt})
     st.session_state["rows"] += 1
 
-    with st.chat_message('user',avatar=f'{minio_url}/dragongame/adaihead.png'):
+    with st.chat_message('user',avatar='streamlit/dragongame_images/adaihead.png'):
         st.write(user_prompt)
 
-    with st.chat_message('assistant',avatar=f'{minio_url}/dragongame/aguahead.png'):
+    with st.chat_message('assistant',avatar='streamlit/dragongame_images/aguahead.png'):
         container1=st.container()
         # container2=st.container()
         with container1:
@@ -372,7 +335,7 @@ if user_prompt:
                 print('调整后的怪物',current_monster,'调整后的宝藏',current_treasure)
 
                 if current_monster:
-                    full_img_path,adai_update_profile,battle_result = battle(bucket,current_scene,current_monster,adai_current_profile, monster_group[current_monster])
+                    full_img_path,adai_update_profile,battle_result = battle(current_scene,current_monster,adai_current_profile, monster_group[current_monster])
                     print('这一轮的is_end',st.session_state['is_end'])
                     print('这一轮的is_end_small',st.session_state['is_end_small'])
                     st.session_state["adai_current_profile"]=adai_update_profile
@@ -437,7 +400,7 @@ if user_prompt:
                     print('if::::')
 
                 elif current_treasure:
-                    full_img_path,adai_update_profile,treasure_result=treasure(bucket,current_treasure,adai_current_profile)
+                    full_img_path,adai_update_profile,treasure_result=treasure(current_treasure,adai_current_profile)
                     st.session_state["adai_current_profile"]=adai_update_profile
                     print(treasure_result)
                     prompt_template= f'''
@@ -462,16 +425,13 @@ if user_prompt:
                 else:  
                     if st.session_state['is_end']:
                         prompt_template= f'''你只可以返回一句话：```本轮游戏已结束，请刷新浏览器重新进入游戏```'''
-                        # img_path="streamlit/dragongame_images/lose_dragon"
-                        folder_name="lose-dragon"
+                        img_path="streamlit/dragongame_images/lose_dragon"
                     elif st.session_state['is_end_small']:
                         prompt_template= f'''你只可以返回一句话：```本轮游戏已结束，请刷新浏览器重新进入游戏```'''
-                        # img_path="streamlit/dragongame_images/lose_general"
-                        folder_name="lose-general"
+                        img_path="streamlit/dragongame_images/lose_general"
                     elif st.session_state['is_win']:
                         prompt_template= f'''你只可以返回一句话：```本轮游戏已结束，请刷新浏览器重新进入游戏```'''
-                        # img_path="streamlit/dragongame_images/defeat_dragon"
-                        folder_name="defeat-dragon"
+                        img_path="streamlit/dragongame_images/defeat_dragon"
                     else:
                         prompt_template= f'''
                                 你是龙猫版本的勇者斗恶龙的文字游戏中的一个场景环节。用户扮演游戏的主人翁龙猫阿呆。需要根据下方需求直接输出答案。
@@ -491,18 +451,14 @@ if user_prompt:
                                 '''
                     
                         if current_scene=='绿油油的田野':
-                            # img_path="streamlit/dragongame_images/scene_field"
-                            folder_name="scene-field"
+                            img_path="streamlit/dragongame_images/scene_field"
                         elif current_scene=='森林':
-                            # img_path="streamlit/dragongame_images/scene_forest"
-                            folder_name="scene-forest"
+                            img_path="streamlit/dragongame_images/scene_forest"
                         elif current_scene=='森林深处的城堡':
-                            # img_path="streamlit/dragongame_images/scene_castle"
-                            folder_name="scene-castle"
+                            img_path="streamlit/dragongame_images/scene_castle"
                         else:
-                            # img_path="streamlit/dragongame_images/get_lost"
-                            folder_name="get-lost"
-                    full_img_path=image(bucket,folder_name)
+                            img_path="streamlit/dragongame_images/get_lost"
+                    full_img_path=image(img_path)
                     print('else::::')
                         
 
@@ -521,11 +477,10 @@ if user_prompt:
 
         st.session_state['rows'] += 1
 
-        # if os.path.exists(full_img_path):       
-        with container1:
-            print(full_img_path,type(full_img_path))
-            st.image(full_img_path)
-            st.session_state['image_list'].append({st.session_state['rows']:full_img_path})
+        if os.path.exists(full_img_path):       
+            with container1:
+                st.image(full_img_path)
+                st.session_state['image_list'].append({st.session_state['rows']:full_img_path})
         
     st.session_state['messages'].append({"role": "assistant", "content": response_message})#完整答案录入正规message
     st.session_state['tmp_messages'].append({"role": "assistant", "content": response_choice})

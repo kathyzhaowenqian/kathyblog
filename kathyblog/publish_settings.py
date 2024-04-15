@@ -19,9 +19,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
-APIKEY_OPENAI=os.environ.get('APIKEY_OPENAI')
-ORGANIZATION_OPENAI = os.environ.get('ORGANIZATION_OPENAI')
-APIKEY_CLAUDE=os.environ.get('APIKEY_CLAUDE')
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
@@ -41,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home',
+    'ckeditor',
+    'ckeditor_uploader'
 ]
 
 MIDDLEWARE = [
@@ -77,13 +76,29 @@ WSGI_APPLICATION = 'kathyblog.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
+
+DATABASES = {
+
+    #'default':{},
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.environ.get('PG_DBNAME'),
+        'USER': os.environ.get('PG_DBUSER'),
+        'PASSWORD': os.environ.get('PG_PASSWORD'),
+        'HOST': os.environ.get('PG_HOST'),
+        'PORT': os.environ.get('PG_PORT'),
+        'OPTIONS': {
+            'options': '-c search_path="blogs"'
+        }
+    },
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -123,8 +138,66 @@ TIME_ZONE = 'Asia/Shanghai'
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT='/static'     
+STATICFILES_DIRS=['home/static/']
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+APIKEY_OPENAI=os.environ.get('APIKEY_OPENAI')
+ORGANIZATION_OPENAI = os.environ.get('ORGANIZATION_OPENAI')
+APIKEY_CLAUDE=os.environ.get('APIKEY_CLAUDE')
+
+
+
+# 配置 Minio 存储
+DEFAULT_FILE_STORAGE = 'minio_storage.storage.MinioMediaStorage'
+# 图床地址
+MINIO_URL = os.environ.get('MINIO_URL')
+
+
+MINIO_STORAGE_ENDPOINT=os.environ.get('MINIO_STORAGE_ENDPOINT')
+MINIO_STORAGE_ACCESS_KEY = os.environ.get('MINIO_STORAGE_ACCESS_KEY')
+MINIO_STORAGE_SECRET_KEY = os.environ.get('MINIO_STORAGE_SECRET_KEY')
+MINIO_STORAGE_USE_HTTPS = False  # 如果使用 HTTPS, 设置为 True
+MINIO_STORAGE_MEDIA_BUCKET_NAME = os.environ.get('MINIO_STORAGE_MEDIA_BUCKET_NAME')
+MINIO_STORAGE_AUTO_CREATE_MEDIA_BUCKET = True
+
+
+CKEDITOR_CONFIGS = {
+    # django-ckeditor默认使用default配置
+    'default': {
+        # 编辑器宽度自适应
+        'width':'1200px',
+        'height':'800px',
+        # tab键转换空格数
+        'tabSpaces': 4,
+        # 工具栏风格
+        'toolbar': 'Custom',
+        # 工具栏按钮
+        'toolbar_Custom': [
+            # 预览、表情
+            ['Preview','Smiley'],
+            # 字体风格
+            ['Bold', 'Italic', 'Underline', 'RemoveFormat', 'Blockquote'],
+            # 字体颜色
+            ['TextColor', 'BGColor'],
+            #格式、字体、大小
+            ['Format','Font','FontSize'],
+            # 链接
+            ['Link', 'Unlink'],
+            # 列表
+            ['Image', 'NumberedList', 'BulletedList'],
+            #居左，居中，居右
+            ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
+            # 最大化
+            ['Maximize']
+        ],
+        # 加入代码块插件
+        'extraPlugins': ','.join(['codesnippet','image2','filebrowser','widget', 'lineutils']),
+}}
+
+CKEDITOR_UPLOAD_PATH = 'blog/' 

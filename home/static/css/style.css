@@ -9812,7 +9812,7 @@ h6,
 }
 
 .page-header {
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/header.jpg), no-repeat center center;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('http://106.14.9.212:9000/kathyblog-general/header.jpg'), no-repeat center center;
   background-size: cover;
 }
 
@@ -10005,6 +10005,10 @@ h6,
 
 .product-item:hover .btn {
   background: #F195B2 !important;
+}
+
+.portfolio-item {
+  position: relative; /* 修改这里 */
 }
 
 .portfolio-item::after {

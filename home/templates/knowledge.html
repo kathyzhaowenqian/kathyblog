@@ -25,6 +25,116 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+    <!-- 新增 -->
+    <script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
+
+
+    <style>
+        .list {
+        height: 100vh;
+        overflow: scroll;
+            }
+        
+        #scroll-body{
+          overflow: visible;
+          -webkit-overflow-scrolling: touch
+        }
+        
+       
+    
+        .loader {
+        display: inline-flex;
+        gap: 10px;
+        
+        
+        }
+        .loader:before,
+        .loader:after {
+          content: "";
+          height: 100px;
+          aspect-ratio: 1;
+          border-radius: 50%;
+          background:
+            linear-gradient(#757575 0 0) top/100% 40% no-repeat,
+            radial-gradient(farthest-side,#000000 95%,#ffffff) 50%/40px 40px no-repeat
+            #ffffff;
+          animation: l7 1.5s infinite alternate ease-in;
+        }
+        @keyframes l7 {
+          0%,
+          70% {background-size:100% 40%,40px 40px}
+          85% {background-size:100% 120%,40px 40px}
+          100% {background-size:100% 40%,40px 40px}
+        }
+    
+    
+        .title-word {
+          animation: color-animation 4s linear infinite;
+        }
+    
+        .title-word-1 {
+          --color-1: #DF8453;
+          --color-2: #3D8DAE;
+          --color-3: #E4A9A8;
+        }
+    
+        .title-word-2 {
+          --color-1: #DBAD4A;
+          --color-2: #ACCFCB;
+          --color-3: #17494D;
+        }
+    
+        .title-word-3 {
+          --color-1: #ACCFCB;
+          --color-2: #E4A9A8;
+          --color-3: #ACCFCB;
+        }
+    
+        .title-word-4 {
+          --color-1: #3D8DAE;
+          --color-2: #DF8453;
+          --color-3: #E4A9A8;
+        }
+    
+        @keyframes color-animation {
+          0%    {color: var(--color-1)}
+          32%   {color: var(--color-1)}
+          33%   {color: var(--color-2)}
+          65%   {color: var(--color-2)}
+          66%   {color: var(--color-3)}
+          99%   {color: var(--color-3)}
+          100%  {color: var(--color-1)}
+        }
+    
+        /* Here are just some visual styles. 🖌 */
+    
+        .loading-more-icon {
+        display: grid;
+        place-items: center;
+        align-items: center;
+        height: 20vh;
+        margin: 50px auto 0 auto;
+        }
+    
+        .loading-end {
+          margin: 0 auto;
+         }
+        .container_no_more_data {
+          display: grid;
+          place-items: center;  
+          text-align: center;
+          height: 50vh;
+          }
+    
+        .title {
+          font-family: "Montserrat", sans-serif;
+          font-weight: 100;
+          font-size: 3.5vw;
+          text-transform: uppercase;
+         }
+            
+        </style>
 </head>
 
 <body>
@@ -119,164 +229,207 @@
     <!-- Header Start -->
     <div class="jumbotron jumbotron-fluid page-header" style="margin-bottom: 90px;">
         <div class="container text-center py-5">
-            <h1 class="text-white display-3 mt-lg-5">关于我们</h1>
+            <h1 class="text-white display-3 mt-lg-5">龙猫知识科普</h1>
             <div class="d-inline-flex align-items-center text-white">
-                <p class="m-0"><a class="text-white" href="/home">Home</a></p>
+                <p class="m-0"><a class="text-white" href="/home">主页</a></p>
                 <i class="fa fa-circle px-3"></i>
-                <p class="m-0">关于我们</p>
+                <p class="m-0">科普</p>
             </div>
         </div>
     </div>
     <!-- Header End -->
 
 
-    <!-- About Start -->
-    <div class="container-fluid py-5">
-        <div class="container py-5">
-            <div class="row justify-content-center">
-                <div class="col-lg-7">
-                    <h1 class="section-title position-relative text-center mb-5">Traditional & Delicious Ice Cream Since 1950</h1>
+
+    <!-- [{'id': 1, 'title': '阿呆', 'abstract': '是小宝宝', 'image_url': 'http://106.14.9.212:9000/kathyblog-gallery/blog/三花.jpg', 'category': '饲养技巧', 'reference': 'https://blog.csdn.net/gymaisyl/article', 'date': '2024年04月12日'},
+         {'id': 2, 'title': '阿瓜', 'abstract': '阿瓜吵死了', 'image_url': 'http://106.14.9.212:9000/kathyblog-gallery/blog/agua.png', 'category': '饮食习性', 'reference': None, 'date': '2024年04月12日'}] -->
+    <!-- <div class="row justify-content-between mx-5"  >
+        <div class="col-lg-7">
+            <div class="card post-item bg-transparent border-0 mb-5">
+                <a href="1/">
+                    <img class="card-img-top rounded-0" src="http://106.14.9.212:9000/kathyblog-general/blog/三花.jpg"  alt="">
+                </a>
+                <div class="card-body px-0">
+                    <h2 class="card-title">
+                        <a class="text-white opacity-75-onHover" href="1/">阿呆</a>
+                    </h2>
+                    <ul class="post-meta mt-3">
+                        <li class="d-inline-block mr-3">
+                            <span class="fas fa-clock text-primary"></span>
+                            <a class="ml-1" href="#">2024年04月12日</a>
+                        </li>
+                        <li class="d-inline-block">
+                            <span class="fas fa-list-alt text-primary"></span>
+                            <a class="ml-1" href="#">饲养技巧</a>
+                        </li>
+                    </ul>
+                    <p class="card-text my-4">是小宝宝</p>
+                    <a href="1/" class="btn btn-primary">Read More </a>
+                </div>
+            </div> -->
+            
+            <!-- <div class="card post-item bg-transparent border-0 mb-5">
+                <a href="/postDetails/">
+                    <img class="card-img-top rounded-0" src="{% static 'images/post/post-lg/02.png' %}" alt="">
+                </a>
+                <div class="card-body px-0">
+                    <h2 class="card-title">
+                        <a class="text-white opacity-75-onHover" href="/postDetails/">Excepteur ado Do minim duis laborum Fugiat ea labore qui veniam labore</a>
+                    </h2>
+                    <ul class="post-meta mt-3">
+                        <li class="d-inline-block mr-3">
+                            <span class="fas fa-clock text-primary"></span>
+                            <a class="ml-1" href="#">24 April, 2016</a>
+                        </li>
+                        <li class="d-inline-block">
+                            <span class="fas fa-list-alt text-primary"></span>
+                            <a class="ml-1" href="#">Photography</a>
+                        </li>
+                    </ul>
+                    <p class="card-text my-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt leo mi, viverra urna. Arcu velit risus, condimentum ut vulputate cursus porttitor turpis in. Diam egestas nec massa, habitasse. Tincidt dui.</p>
+                    <a href="/postDetails/" class="btn btn-primary">Read More <img src="{% static 'images/arrow-right.png' %}" alt=""></a>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-4 py-5">
-                    <h4 class="font-weight-bold mb-3">About Us</h4>
-                    <h5 class="text-muted mb-3">Eos kasd eos dolor vero vero, lorem stet diam rebum. Ipsum amet sed vero dolor sea</h5>
-                    <p>Takimata sed vero vero no sit sed, justo clita duo no duo amet et, nonumy kasd sed dolor eos diam lorem eirmod. Amet sit amet amet no. Est nonumy sed labore eirmod sit magna. Erat at est justo sit ut. Labor diam sed ipsum et eirmod</p>
-                    <a href="" class="btn btn-secondary mt-2">Learn More</a>
+             
+            <div class="card post-item bg-transparent border-0 mb-5">
+                <a href="/postDetails/">
+                    <img class="card-img-top rounded-0" src="{% static 'images/post/post-lg/03.png' %}" alt="">
+                </a>
+                <div class="card-body px-0">
+                    <h2 class="card-title">
+                        <a class="text-white opacity-75-onHover" href="/postDetails/">Aliquip excepteur cilludm irure laboris sint ea qui ex amet id. Ex nulla etno</a>
+                    </h2>
+                    <ul class="post-meta mt-3">
+                        <li class="d-inline-block mr-3">
+                            <span class="fas fa-clock text-primary"></span>
+                            <a class="ml-1" href="#">24 April, 2016</a>
+                        </li>
+                        <li class="d-inline-block">
+                            <span class="fas fa-list-alt text-primary"></span>
+                            <a class="ml-1" href="#">Photography</a>
+                        </li>
+                    </ul>
+                    <p class="card-text my-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt leo mi, viverra urna. Arcu velit risus, condimentum ut vulputate cursus porttitor turpis in. Diam egestas nec massa, habitasse. Tincidt dui.</p>
+                    <a href="/postDetails/" class="btn btn-primary">Read More <img src="{% static 'images/arrow-right.png' %}" alt=""></a>
                 </div>
-                <div class="col-lg-4" style="min-height: 400px;">
-                    <div class="position-relative h-100 rounded overflow-hidden">
-                        <img class="position-absolute w-100 h-100" src="{% static 'img/about.jpg' %}" style="object-fit: cover;">
-                    </div>
+            </div> -->
+         <!-- </div> -->
+    
+        <!-- <div class="col-lg-5">
+            <div class="card post-item bg-transparent border-0 mb-5">
+                <a href="/postDetails/">
+                    <img class="card-img-top rounded-0" src="http://106.14.9.212:9000/kathyblog-general/blog/三花.jpg" alt="">
+                </a>
+                <div class="card-body px-0">
+                    <h2 class="card-title">
+                        <a class="text-white opacity-75-onHover" href="/postDetails/">Occaecat ut elit voluptate on nisi est nisi euro occaecat</a>
+                    </h2>
+                    <ul class="post-meta mt-3 mb-4">
+                        <li class="d-inline-block mr-3">
+                            <span class="fas fa-clock text-primary"></span>
+                            <a class="ml-1" href="#">24 April, 2016</a>
+                        </li>
+                        <li class="d-inline-block">
+                            <span class="fas fa-list-alt text-primary"></span>
+                            <a class="ml-1" href="#">Photography</a>
+                        </li>
+                    </ul>
+                    <a href="/postDetails/" class="btn btn-primary">Read More
                 </div>
-                <div class="col-lg-4 py-5">
-                    <h4 class="font-weight-bold mb-3">Our Features</h4>
-                    <p>Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo. Erat justo sed sed diam. Ea et erat ut sed diam sea ipsum est dolor</p>
-                    <h5 class="text-muted mb-3"><i class="fa fa-check text-secondary mr-3"></i>Eos kasd eos dolor</h5>
-                    <h5 class="text-muted mb-3"><i class="fa fa-check text-secondary mr-3"></i>Eos kasd eos dolor</h5>
-                    <h5 class="text-muted mb-3"><i class="fa fa-check text-secondary mr-3"></i>Eos kasd eos dolor</h5>
-                    <a href="" class="btn btn-primary mt-2">Learn More</a>
+            </div>
+             <div class="card post-item bg-transparent border-0 mb-5">
+                <a href="/postDetails/">
+                    <img class="card-img-top rounded-0" src="{% static 'images/post/post-md/02.png' %}" alt="">
+                </a>
+                <div class="card-body px-0">
+                    <h2 class="card-title">
+                        <a class="text-white opacity-75-onHover" href="/postDetails/">Exercitation ipsuam magndea enim cillum nulla utborses</a>
+                    </h2>
+                    <ul class="post-meta mt-3 mb-4">
+                        <li class="d-inline-block mr-3">
+                            <span class="fas fa-clock text-primary"></span>
+                            <a class="ml-1" href="#">24 April, 2016</a>
+                        </li>
+                        <li class="d-inline-block">
+                            <span class="fas fa-list-alt text-primary"></span>
+                            <a class="ml-1" href="#">Photography</a>
+                        </li>
+                    </ul>
+                    <a href="/postDetails/" class="btn btn-primary">Read More <img src="{% static 'images/arrow-right.png' %}" alt=""></a>
                 </div>
+            </div>
+             <div class="card post-item bg-transparent border-0 mb-5">
+                <a href="/postDetails/">
+                    <img class="card-img-top rounded-0" src="{% static 'images/post/post-md/03.png' %}" alt="">
+                </a>
+                <div class="card-body px-0">
+                    <h2 class="card-title">
+                        <a class="text-white opacity-75-onHover" href="/postDetails/">Consequat exercitation nova labore fugiat sint exercita.</a>
+                    </h2>
+                    <ul class="post-meta mt-3 mb-4">
+                        <li class="d-inline-block mr-3">
+                            <span class="fas fa-clock text-primary"></span>
+                            <a class="ml-1" href="#">24 April, 2016</a>
+                        </li>
+                        <li class="d-inline-block">
+                            <span class="fas fa-list-alt text-primary"></span>
+                            <a class="ml-1" href="#">Photography</a>
+                        </li>
+                    </ul>
+                    <a href="/postDetails/" class="btn btn-primary">Read More <img src="{% static 'images/arrow-right.png' %}" alt=""></a>
+                </div>
+            </div>
+         </div> -->
+<!-- </div> -->
+
+
+<div class="row justify-content-between mx-5" id="scroll-body">
+    <div v-for="(item, index) in blog_render_list" :key="index" :class="[index % 2 === 0 ? 'col-lg-7' : 'col-lg-5']">
+        <div class="card post-item bg-transparent border-0 mb-5">
+            <a :href="item.id + '/'" target="_blank" >
+                <img class="card-img-top rounded-0" :src="item.image_url" alt="">
+            </a>
+            <div class="card-body px-0">
+                <h2 class="card-title">
+                    <a class="text-black opacity-75-onHover" :href="item.id + '/'" target="_blank" >[[ item.title ]]</a>
+                </h2>
+                <ul class="post-meta mt-3 mb-4">
+                    <li class="d-inline-block mr-3">
+                        <span class="fas fa-clock text-primary"></span>
+                        <a class="ml-1" href="#">[[ item.date ]]</a>
+                    </li>
+                    <li class="d-inline-block">
+                        <span class="fas fa-list-alt text-primary"></span>
+                        <a class="ml-1" href="#">[[ item.category ]]</a>
+                    </li>
+                </ul>
+                <p class="card-text my-4">[[ item.abstract ]]</p>
+                <a :href="item.id + '/'"  target="_blank" class="btn btn-primary">更多</a>
             </div>
         </div>
     </div>
-    <!-- About End -->
 
+    <div class="loading-more-icon" style="display: none;">
+                    
+        <div class="loader"></div>
+    
+    </div>
 
-    <!-- Team Start -->
-    <!-- <div class="container-fluid py-5">
-        <div class="container py-5">
-            <div class="row">
-                <div class="col-lg-6">
-                    <h1 class="section-title position-relative mb-5">Experienced & Most Famous Ice Cream Chefs</h1>
-                </div>
-                <div class="col-lg-6 mb-5 mb-lg-0 pb-5 pb-lg-0"></div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="owl-carousel team-carousel">
-                        <div class="team-item">
-                            <div class="team-img mx-auto">
-                                <img class="rounded-circle w-100 h-100" src="{% static 'img/team-1.jpg' %}" style="object-fit: cover;">
-                            </div>
-                            <div class="position-relative text-center bg-light rounded px-4 py-5" style="margin-top: -100px;">
-                                <h3 class="font-weight-bold mt-5 mb-3 pt-5">Full Name</h3>
-                                <h6 class="text-uppercase text-muted mb-4">Designation</h6>
-                                <div class="d-flex justify-content-center pt-1">
-                                    <a class="btn btn-outline-secondary btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-outline-secondary btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-outline-secondary btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="team-item">
-                            <div class="team-img mx-auto">
-                                <img class="rounded-circle w-100 h-100" src="{% static 'img/team-2.jpg' %}" style="object-fit: cover;">
-                            </div>
-                            <div class="position-relative text-center bg-light rounded px-4 py-5" style="margin-top: -100px;">
-                                <h3 class="font-weight-bold mt-5 mb-3 pt-5">Full Name</h3>
-                                <h6 class="text-uppercase text-muted mb-4">Designation</h6>
-                                <div class="d-flex justify-content-center pt-1">
-                                    <a class="btn btn-outline-secondary btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-outline-secondary btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-outline-secondary btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="team-item">
-                            <div class="team-img mx-auto">
-                                <img class="rounded-circle w-100 h-100" src="{% static 'img/team-3.jpg' %}" style="object-fit: cover;">
-                            </div>
-                            <div class="position-relative text-center bg-light rounded px-4 py-5" style="margin-top: -100px;">
-                                <h3 class="font-weight-bold mt-5 mb-3 pt-5">Full Name</h3>
-                                <h6 class="text-uppercase text-muted mb-4">Designation</h6>
-                                <div class="d-flex justify-content-center pt-1">
-                                    <a class="btn btn-outline-secondary btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-outline-secondary btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-outline-secondary btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="team-item">
-                            <div class="team-img mx-auto">
-                                <img class="rounded-circle w-100 h-100" src="{% static 'img/team-4.jpg' %}" style="object-fit: cover;">
-                            </div>
-                            <div class="position-relative text-center bg-light rounded px-4 py-5" style="margin-top: -100px;">
-                                <h3 class="font-weight-bold mt-5 mb-3 pt-5">Full Name</h3>
-                                <h6 class="text-uppercase text-muted mb-4">Designation</h6>
-                                <div class="d-flex justify-content-center pt-1">
-                                    <a class="btn btn-outline-secondary btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-outline-secondary btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-outline-secondary btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- Team End -->
-
-
-    <!-- Footer Start -->
-    <div class="container-fluid footer bg-light py-5" style="margin-top: 90px;">
-        <div class="container text-center py-5">
-            <div class="row">
-                <div class="col-12 mb-4">
-                    <a href="/home" class="navbar-brand m-0">
-                        <h1 class="m-0 mt-n2 display-4 text-primary"><span class="text-secondary">阿呆</span>阿瓜</h1>
-                    </a>
-                </div>
-                <div class="col-12 mb-4">
-                    <a class="btn btn-outline-secondary btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-outline-secondary btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-outline-secondary btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-outline-secondary btn-social" href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-                <div class="col-12 mt-2 mb-4">
-                    <div class="row">
-                        <div class="col-sm-6 text-center text-sm-right border-right mb-3 mb-sm-0">
-                            <h5 class="font-weight-bold mb-2">Get In Touch</h5>
-                            <p class="mb-2">123 Street, New York, USA</p>
-                            <p class="mb-0">+012 345 67890</p>
-                        </div>
-                        <div class="col-sm-6 text-center text-sm-left">
-                            <h5 class="font-weight-bold mb-2">Opening Hours</h5>
-                            <p class="mb-2">Mon – Sat, 8AM – 5PM</p>
-                            <p class="mb-0">Sunday: Closed</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <p class="m-0">&copy; <a href="#">Domain</a>. All Rights Reserved. Designed by <a href="https://htmlcodex.com">HTML Codex</a>
-                    </p>
-                </div>
-            </div>
+    <div style="display: none;" class="loading-end">
+        <div class="container_no_more_data" >
+            <h5 class="title">
+            <span class="title-word title-word-1">没有</span>
+            <span class="title-word title-word-2">更多</span>
+            <span class="title-word title-word-3">文章</span>
+            <span class="title-word title-word-4">啦！！！</span>
+            </h5>
         </div>
     </div>
-    <!-- Footer End -->
+</div>
+
+
+
+
 
 
     <!-- Back to Top -->
@@ -292,12 +445,103 @@
     <script src="{% static 'lib/isotope/isotope.pkgd.min.js' %}"></script>
     <script src="{% static 'lib/lightbox/js/lightbox.min.js' %}"></script>
 
-    <!-- Contact Javascript File -->
-    <script src="{% static 'mail/jqBootstrapValidation.min.js' %}"></script>
-    <script src="{% static 'mail/contact.js"></script>
 
     <!-- Template Javascript -->
     <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/V_scroll_loading.js' %}"></script>
+
 </body>
 
 </html>
+
+<script>
+    var blog_total_list = JSON.parse('{{result|safe}}')
+    console.log(blog_total_list,typeof(blog_total_list),blog_total_list[0])
+
+    var test = new Vue({
+    
+        delimiters: ['[[', ']]'],
+        el: '#scroll-body',
+        data: function () {
+            return{
+                list:[],
+                scrollLit:'',
+                page: 0,
+                blog_render_list:[],
+            }
+            },
+
+        methods:{
+            getData: function () {
+                /**
+                 * 模拟获取数据，假设分页的数据最多3页
+                 * 具体代码根据业务不同改写，比如约定好每页返回20条数据，如果返回数据长度小于20，则可以设置this.scrollLit.loadingEnd();
+                 */
+                // this.page++;
+                console.log(blog_total_list,blog_total_list.length)
+                if(blog_total_list.length == 0){
+                this.scrollLit.loadingEnd();
+                document.querySelector('.loading-end').style.display='block'
+                return;
+                }
+
+                //获取数据
+                var loadingIcon = document.querySelector('.loading-more-icon');
+                loadingIcon.style.display='block'; //显示小眼睛
+                setTimeout(function () {
+                loadingIcon.style.display='none';//2秒之后不显示了
+                for(var a=0; a<2; a++){
+
+                    // // 每下滑一次从adai_img_url_list 随机取出一张图片到 img_url_list
+                    // // 但是你再实际的应用场景中，应该是 每下滑一次从adai_img_url_list 取出后，adai_img_url_list 就会少一张
+                
+                    //     var sliced = blog_total_list.slice(0, 1); // 取出前1个元素
+                    //     blog_total_list.splice(0, 1); // 从原始列表中删除这1个元素
+                    //     test.blog_render_list.push(sliced[0])
+                    //     // console.log(sliced[0].title,typeof(sliced[0]))
+                    if (blog_total_list.length > 0) {
+                        var sliced = blog_total_list.slice(0, 1); // 取出前1个元素
+                        blog_total_list.splice(0, 1); // 从原始列表中删除这1个元素
+                        test.blog_render_list.push(sliced[0]);
+                        // console.log(sliced[0].title, typeof(sliced[0]))
+                    } else {
+                        // blog_total_list中已经没有元素了，可以添加额外的处理逻辑
+                        console.log("No more elements in blog_total_list");
+                    }
+                }
+                this.scrollLit.loadingUnLock()
+                }.bind(this), 2000)
+            }
+            },
+
+        mounted: function () {
+
+        //绑定滚动区域
+        this.scrollLit = new V_scroll_loading({
+            element: 'body',
+            triggerDistance:200
+        });
+
+        //滚动初始化
+        this.scrollLit.on('init', function (data) {
+            console.log('init')
+            console.log(data)
+            this.getData()
+        }.bind(this));
+
+        //滚动回调
+        this.scrollLit.on('scrollEnd', function (data) {
+            console.log('scrollEnd')
+            console.log(data)
+            this.getData()
+        }.bind(this));
+
+        }
+    })
+
+
+
+
+
+
+</script>

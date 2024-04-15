@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>iCREAM - Ice Cream Shop Website Template</title>
+    <title>画廊 - AI鼠</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -25,6 +25,114 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <!-- 新增 -->
+    <script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
+
+    <style>
+    .list {
+    height: 100vh;
+    overflow: scroll;
+        }
+    
+    #scroll-body{
+      overflow: visible;
+      -webkit-overflow-scrolling: touch
+    }
+    
+   
+
+    .loader {
+    display: inline-flex;
+    gap: 10px;
+    
+    
+    }
+    .loader:before,
+    .loader:after {
+      content: "";
+      height: 100px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background:
+        linear-gradient(#757575 0 0) top/100% 40% no-repeat,
+        radial-gradient(farthest-side,#000000 95%,#ffffff) 50%/40px 40px no-repeat
+        #ffffff;
+      animation: l7 1.5s infinite alternate ease-in;
+    }
+    @keyframes l7 {
+      0%,
+      70% {background-size:100% 40%,40px 40px}
+      85% {background-size:100% 120%,40px 40px}
+      100% {background-size:100% 40%,40px 40px}
+    }
+
+
+    .title-word {
+      animation: color-animation 4s linear infinite;
+    }
+
+    .title-word-1 {
+      --color-1: #DF8453;
+      --color-2: #3D8DAE;
+      --color-3: #E4A9A8;
+    }
+
+    .title-word-2 {
+      --color-1: #DBAD4A;
+      --color-2: #ACCFCB;
+      --color-3: #17494D;
+    }
+
+    .title-word-3 {
+      --color-1: #ACCFCB;
+      --color-2: #E4A9A8;
+      --color-3: #ACCFCB;
+    }
+
+    .title-word-4 {
+      --color-1: #3D8DAE;
+      --color-2: #DF8453;
+      --color-3: #E4A9A8;
+    }
+
+    @keyframes color-animation {
+      0%    {color: var(--color-1)}
+      32%   {color: var(--color-1)}
+      33%   {color: var(--color-2)}
+      65%   {color: var(--color-2)}
+      66%   {color: var(--color-3)}
+      99%   {color: var(--color-3)}
+      100%  {color: var(--color-1)}
+    }
+
+    /* Here are just some visual styles. 🖌 */
+
+    .loading-more-icon {
+    display: grid;
+    place-items: center;
+    align-items: center;
+    height: 20vh;
+    margin: 50px auto 0 auto;
+    }
+
+    .loading-end {
+      margin: 0 auto;
+     }
+    .container_no_more_data {
+      display: grid;
+      place-items: center;  
+      text-align: center;
+      height: 50vh;
+      }
+
+    .title {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 100;
+      font-size: 3.5vw;
+      text-transform: uppercase;
+     }
+        
+    </style>
 </head>
 
 <body>
@@ -66,6 +174,7 @@
     <!-- Topbar End -->
 
 
+    
     <!-- Navbar Start -->
     <div class="container-fluid position-relative nav-bar p-0">
         <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
@@ -88,9 +197,9 @@
                     </a>
                     <div class="navbar-nav mr-auto py-0">
                         <a href="/home/gallery" class="nav-item nav-link">画廊</a>
-                        <a href="" class="nav-item nav-link">科普</a>
+                        <a href="/home/knowledge" class="nav-item nav-link">科普</a>
                         <!-- /home/knowledge -->
-                        <a href="" class="nav-item nav-link">联系</a> 
+                        <a href="/home/contact" class="nav-item nav-link">联系</a> 
                         <!-- /home/contact -->
                     </div>
                 </div>
@@ -103,11 +212,11 @@
     <!-- Header Start -->
     <div class="jumbotron jumbotron-fluid page-header" style="margin-bottom: 90px;">
         <div class="container text-center py-5">
-            <h1 class="text-white display-3 mt-lg-5">Gallery</h1>
+            <h1 class="text-white display-3 mt-lg-5">画廊</h1>
             <div class="d-inline-flex align-items-center text-white">
-                <p class="m-0"><a class="text-white" href="">Home</a></p>
+                <p class="m-0"><a class="text-white" href="\home">主页</a></p>
                 <i class="fa fa-circle px-3"></i>
-                <p class="m-0">Gallery</p>
+                <p class="m-0">画廊</p>
             </div>
         </div>
     </div>
@@ -115,82 +224,97 @@
 
 
     <!-- Portfolio Start -->
+    
+
     <div class="container-fluid py-5 px-0">
-        <div class="container py-5">
+        <div class="container py-5" >
             <div class="row justify-content-center">
                 <div class="col-lg-5">
-                    <h1 class="section-title position-relative text-center mb-5">Delicious Ice Cream Made From Our Very Own Organic Milk</h1>
+                    <h1 class="section-title position-relative text-center mb-5">萌萌哒AI鼠</h1>
                 </div>
             </div>
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-12 text-center">
                     <ul class="list-inline mb-4 pb-2" id="portfolio-flters">
-                        <li class="btn btn-sm btn-outline-primary m-1 active"  data-filter="*">All</li>
-                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".first">Cone</li>
-                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".second">Vanilla</li>
-                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".third">Chocolate</li>
+                        <li class="btn btn-sm btn-outline-primary m-1 active"  data-filter="*">全部</li>
+                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".first">AI鼠</li>
+                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".second">真实鼠</li>
+                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".third">其他</li>
                     </ul>
                 </div>
-            </div>
-            <div class="row m-0 portfolio-container">
-                <div class="col-lg-4 col-md-6 p-0 portfolio-item first">
-                    <div class="position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="img/portfolio-1.jpg" alt="">
-                        <a class="portfolio-btn" href="img/portfolio-1.jpg" data-lightbox="portfolio">
-                            <i class="fa fa-plus text-primary" style="font-size: 60px;"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 p-0 portfolio-item second">
-                    <div class="position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="img/portfolio-2.jpg" alt="">
-                        <a class="portfolio-btn" href="img/portfolio-2.jpg" data-lightbox="portfolio">
-                            <i class="fa fa-plus text-primary" style="font-size: 60px;"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 p-0 portfolio-item third">
-                    <div class="position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="img/portfolio-3.jpg" alt="">
-                        <a class="portfolio-btn" href="img/portfolio-3.jpg" data-lightbox="portfolio">
-                            <i class="fa fa-plus text-primary" style="font-size: 60px;"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 p-0 portfolio-item first">
-                    <div class="position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="img/portfolio-4.jpg" alt="">
-                        <a class="portfolio-btn" href="img/portfolio-4.jpg" data-lightbox="portfolio">
-                            <i class="fa fa-plus text-primary" style="font-size: 60px;"></i>
-                        </a>
-                    </div>
-                </div>
+            </div> -->
 
-                <div class="col-lg-4 col-md-6 p-0 portfolio-item second">
+            
+            
+            <div class="row m-0 portfolio-container" id="scroll-body">            
+                                  
+                <div  v-for="(item,key) in img_url_list" :keys="key" class="col-lg-4 col-md-6 p-0 portfolio-item first" :style="{ position: 'relative' }">
                     <div class="position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="img/portfolio-5.jpg" alt="">
-                        <a class="portfolio-btn" href="img/portfolio-5.jpg" data-lightbox="portfolio">
+                        <img class="img-fluid w-100" :src="item" alt="">
+                        <a class="portfolio-btn" :href="item" data-lightbox="portfolio">
                             <i class="fa fa-plus text-primary" style="font-size: 60px;"></i>
                         </a>
                     </div>
                 </div>
+                
 
-                <div class="col-lg-4 col-md-6 p-0 portfolio-item third">
-                    <div class="position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="img/portfolio-6.jpg" alt="">
-                        <a class="portfolio-btn" href="img/portfolio-6.jpg" data-lightbox="portfolio">
-                            <i class="fa fa-plus text-primary" style="font-size: 60px;"></i>
-                        </a>
-                    </div>
+                <div class="loading-more-icon" style="display: none;">
+                    
+                        <div class="loader"></div>
+                    
                 </div>
+            
+                <div style="display: none;" class="loading-end">
+                <div class="container_no_more_data" >
+                    <h5 class="title">
+                    <span class="title-word title-word-1">没有</span>
+                    <span class="title-word title-word-2">更多</span>
+                    <span class="title-word title-word-3">图片</span>
+                    <span class="title-word title-word-4">啦！！！</span>
+                    </h5>
+                </div>
+                </div>
+            
+                    
+                    <!-- <div class="col-lg-4 col-md-6 p-0 portfolio-item first">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="{%  static 'img/portfolio-1.jpg' %}" alt="">
+                            <a class="portfolio-btn" href="{%  static 'img/portfolio-1.jpg' %}" data-lightbox="portfolio">
+                                <i class="fa fa-plus text-primary" style="font-size: 60px;"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 p-0 portfolio-item second">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="{%  static 'img/portfolio-2.jpg' %}" alt="">
+                            <a class="portfolio-btn" href="{%  static 'img/portfolio-2.jpg' %}" data-lightbox="portfolio">
+                                <i class="fa fa-plus text-primary" style="font-size: 60px;"></i>
+                            </a>
+                        </div>
+                    </div> -->
+                    
+                   
+                    
+
+                
+
             </div>
         </div>
     </div>
+
+
+    
     <!-- Portfolio End -->
 
 
     <!-- Footer Start -->
-    <div class="container-fluid footer bg-light py-5" style="margin-top: 90px;">
+    <!-- <div class="container-fluid footer bg-light py-5" style="margin-bottom: 0%; 
+                                                            position: fixed; bottom: 0; left: 0; right: 0; 
+                                                            z-index: 1000; width: 100%;
+                                                            max-height: 18rem;
+                                                            opacity: 0.1;
+                                                            ">
         <div class="container text-center py-5">
             <div class="row">
                 <div class="col-12 mb-4">
@@ -224,7 +348,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Footer End -->
 
 
@@ -249,6 +373,96 @@
 
     <!-- Template Javascript -->
     <script src="{% static 'js/main.js' %}"></script>
+
+    <script src="{% static 'js/V_scroll_loading.js' %}"></script>
+
 </body>
 
 </html>
+
+<script>
+    var adai_img_url_list = JSON.parse('{{minio_img_url_list|safe}}')
+    console.log(adai_img_url_list,typeof(adai_img_url_list),adai_img_url_list[0])
+
+    var test = new Vue({
+    
+        delimiters: ['[[', ']]'],
+        el: '#scroll-body',
+        data: function () {
+            return{
+                list:[],
+                scrollLit:'',
+                page: 0,
+                img_url_list:[],
+            }
+            },
+
+        methods:{
+            getData: function () {
+                /**
+                 * 模拟获取数据，假设分页的数据最多3页
+                 * 具体代码根据业务不同改写，比如约定好每页返回20条数据，如果返回数据长度小于20，则可以设置this.scrollLit.loadingEnd();
+                 */
+                // this.page++;
+                console.log(adai_img_url_list,adai_img_url_list.length)
+                if(adai_img_url_list.length == 0){
+                this.scrollLit.loadingEnd();
+                document.querySelector('.loading-end').style.display='block'
+                return;
+                }
+
+                //获取数据
+                var loadingIcon = document.querySelector('.loading-more-icon');
+                loadingIcon.style.display='block'; //显示小眼睛
+                setTimeout(function () {
+                loadingIcon.style.display='none';//2秒之后不显示了
+                for(var a=0; a<6; a++){
+
+                    // 每下滑一次从adai_img_url_list 随机取出一张图片到 img_url_list
+                    // 但是你再实际的应用场景中，应该是 每下滑一次从adai_img_url_list 取出后，adai_img_url_list 就会少一张
+                
+                        var sliced = adai_img_url_list.slice(0, 1); // 取出前1个元素
+                        adai_img_url_list.splice(0, 1); // 从原始列表中删除这1个元素
+                        test.img_url_list.push(sliced)
+
+                    // randomItem = adai_img_url_list[Math.floor(Math.random() * adai_img_url_list.length)];
+                    // test.img_url_list.push(randomItem)
+                
+
+                }
+                this.scrollLit.loadingUnLock()
+                }.bind(this), 2000)
+            }
+            },
+
+        mounted: function () {
+
+        //绑定滚动区域
+        this.scrollLit = new V_scroll_loading({
+            element: 'body',
+            triggerDistance:200
+        });
+
+        //滚动初始化
+        this.scrollLit.on('init', function (data) {
+            console.log('init')
+            console.log(data)
+            this.getData()
+        }.bind(this));
+
+        //滚动回调
+        this.scrollLit.on('scrollEnd', function (data) {
+            console.log('scrollEnd')
+            console.log(data)
+            this.getData()
+        }.bind(this));
+
+        }
+    })
+
+
+
+
+
+
+</script>

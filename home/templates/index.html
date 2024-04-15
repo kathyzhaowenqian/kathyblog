@@ -65,7 +65,8 @@
     </div> -->
     <!-- Topbar End -->
 
-
+    <!-- <img src="https://s21.ax1x.com/2024/04/06/pFqBQ1J.jpg" alt="pFqBQ1J.jpg" border="0" /> -->
+    <!-- <img src="http://m.qpic.cn/psc?/V51QbwOI2nw0up3TMM9r4Jlwrh4Rv65o/bqQfVz5yrrGYSXMvKr.cqdzEDKGX0Onu5mwkbGFlxwFZinhOIjADh8Tj7zUD*zrkhZyLOroDuKXLQIV6lb76Eb56.bUIE6psVxACrsK8b44!/b&bo=AAQABAAEAAQBFzA!&rf=viewer_4&t=5" > -->
     <!-- Navbar Start -->
     <div class="container-fluid position-relative nav-bar p-0">
         <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
@@ -88,7 +89,7 @@
                     </a>
                     <div class="navbar-nav mr-auto py-0">
                         <a href="/home/gallery" class="nav-item nav-link">画廊</a>
-                        <a href="" class="nav-item nav-link">科普</a>
+                        <a href="/home/knowledge" class="nav-item nav-link">科普</a>
                         <!-- /home/knowledge -->
                         <a href="" class="nav-item nav-link">联系</a> 
                         <!-- /home/contact -->
@@ -105,23 +106,24 @@
         <div id="header-carousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="w-100" src="{% static 'img/carousel-1.jpg' %}" alt="Image">
+                    <!-- <img class="w-100" src="{% static 'img/carousel-1.jpg' %}" alt="Image"> -->
+                    <img class="w-100" src="{{ minio_url }}/kathyblog-general/carousel-1.jpg" alt="Image">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
                             <h1 class="display-3 text-white mb-md-4">阿呆阿瓜可爱图集</h1>
-                            <h4 class="text-white text-uppercase mb-md-3">真实鼠 & AI鼠</h4>
+                            <h4 class="text-white text-uppercase mb-md-3">AI阿呆阿瓜</h4>
 
                             <a href="/home/gallery" target="_blank" class="btn btn-primary py-md-3 px-md-5 mt-2">前往画廊</a>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="w-100" src="{% static 'img/carousel-2.png' %}" alt="Image">
+                    <!-- <img class="w-100" src="{% static 'img/carousel-2.png' %}" alt="Image"> -->
+                    <img class="w-100" src="{{ minio_url }}/kathyblog-general/carousel-2.png" alt="Image">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
                             <h1 class="display-3 text-white mb-md-4">龙猫阿呆斗恶龙</h1>
                             <h4 class="text-white text-uppercase mb-md-3">AI文字游戏</h4>
-
                             <a href="/home/project/dragongame"  target="_blank" class="btn btn-primary py-md-3 px-md-5 mt-2">前往游戏</a>
                         </div>
                     </div>
@@ -153,23 +155,26 @@
             <div class="row">
                 <div class="col-lg-4 py-5">
                     <h4 class="font-weight-bold mb-3">关于我们</h4>
-                    <h5 class="text-muted mb-3">我们是可爱的龙猫</h5>
-                    <p>嘎嘎嘎</p>
-                    <a href="" class="btn btn-secondary mt-2">更多</a>
+                    <!-- <h5 class="text-muted mb-3">我们是可爱的龙猫</h5> -->
+                    <p>"2020年1月11日，当我们俩还是几个月大的宝宝时，我们被挂在了海鲜市场。麻麻刷到了我们，被我们毛茸茸、圆溜溜的模样迷倒了！她当天就急匆匆冒着大雨把我们接回了家。从那一天起，我们就和麻麻一起生活啦！吃得饱、住得大，麻麻每天还放我们出来玩耍30分钟，我们特别喜欢蹦床、在枕头上撒尿、在饭桌上拉屎，我们爱麻麻！"</p>
+                    <!-- <a href="" class="btn btn-secondary mt-2">更多</a> -->
                 </div>
                 <div class="col-lg-4" style="min-height: 400px;">
                     <div class="position-relative h-100 rounded overflow-hidden">
-                        <img class="position-absolute w-100 h-100" src="{% static 'img/about.jpg' %}"
+                        <!-- <img class="position-absolute w-100 h-100" src="{% static 'img/about.jpg' %}" -->
+                        <img class="position-absolute w-100 h-100" src="{{ minio_url }}/kathyblog-general/about.jpg"
                             style="object-fit: cover;">
                     </div>
                 </div>
                 <div class="col-lg-4 py-5">
-                    <h4 class="font-weight-bold mb-3">Our Features</h4>
-                    <p>我们很可爱 毛茸茸</p>
-                    <h5 class="text-muted mb-3"><i class="fa fa-check text-secondary mr-3"></i>Eos kasd eos dolor</h5>
-                    <h5 class="text-muted mb-3"><i class="fa fa-check text-secondary mr-3"></i>Eos kasd eos dolor</h5>
-                    <h5 class="text-muted mb-3"><i class="fa fa-check text-secondary mr-3"></i>Eos kasd eos dolor</h5>
-                    <a href="" class="btn btn-primary mt-2">Learn More</a>
+                    <h4 class="font-weight-bold mb-3">我们的特点</h4>
+                    <!-- <p>我们很可爱 毛茸茸</p> -->
+                    <h5 class="text-muted mb-3"><i class="fa fa-paw text-secondary mr-3"></i>阿呆：紫灰龙猫，DOB：2019.8</h5>
+                    <h5 class="text-muted mb-3"><i class="fa fa-arrow-right  text-secondary mr-3"></i>特点：圆头鼠，装凶鼠，吃不饱鼠</h5>
+                    <h5 class="text-muted mb-3"><i class="fa fa-paw text-secondary mr-3"></i>阿瓜：粉白龙猫，DOB：2019.8</h5>
+                    <h5 class="text-muted mb-3"><i class="fa fa-arrow-right  text-secondary mr-3"></i>特点：咬妈鼠，弹跳鼠，刹不住鼠</h5>
+
+                    <a href="/home/about" class="btn btn-primary mt-2">了解更多</a>
                 </div>
             </div>
         </div>
@@ -203,8 +208,8 @@
                         style="width: 120px; height: 120px;">
                         <h3 class="font-weight-bold text-secondary mb-0">视频总结</h3>
                     </div>
-                    <h3 class="font-weight-bold text-white mt-3 mb-4">根据视频生成时间轴和总结</h3>
-                    <p class="text-white mb-4">针对B站视频, 进行总结</p>
+                    <h3 class="font-weight-bold text-white mt-3 mb-4">根据视频划分主题，生成对应的时间轴和总结</h3>
+                    <p class="text-white mb-4">目前仅针对B站视频</p>
                     <!-- <a href="" class="btn btn-secondary py-3 px-5 mt-2">Order Now</a> -->
                 </div>
             </div>
@@ -231,8 +236,10 @@
                         style="width: 120px; height: 120px;">
                         <h3 class="font-weight-bold text-secondary mb-0">文字游戏</h3>
                     </div>
-                    <h3 class="font-weight-bold text-white mt-3 mb-4">对话方式开展游戏</h3>
-                    <p class="text-white mb-4">救阿瓜</p>
+                    <h3 class="font-weight-bold text-white mt-3 mb-4">龙猫阿呆斗恶龙</h3>
+                    <p class="text-white mb-4">用户扮演小龙猫阿呆🐹，阿呆的好友阿瓜公主👸被邪恶的龙王🐲抓走关进了森林深处的城堡🏰！
+                
+                        为了拯救她，阿呆需要穿越田野🌾和森林🌲，与小怪👾战斗，不断提升自己的力量⚔️，最终前往城堡🏰挑战恶龙王🐲，解救被困的阿瓜公主👸！</p>
                     <!-- <a href="" class="btn btn-secondary py-3 px-5 mt-2">Order Now</a> -->
                 </div>
             </div>
@@ -273,66 +280,22 @@
             <div class="row">
                 <div class="col-12">
                     <div class="owl-carousel service-carousel">
+                        {% for item in blog_articles %}
                         <div class="service-item">
                             <div class="service-img mx-auto">
                                 <img class="rounded-circle w-100 h-100 bg-light p-3"
-                                    src="{% static 'img/service-1.jpg' %}" style="object-fit: cover;">
+                                    src="{{ minio_url }}/{{ bucket }}/{{ item.image_url }}" style="object-fit: cover;">
                             </div>
                             <div class="position-relative text-center bg-light rounded p-4 pb-5"
                                 style="margin-top: -75px;">
-                                <h5 class="font-weight-semi-bold mt-5 mb-3 pt-5">Quality Maintain</h5>
-                                <p>Dolor nonumy sed eos sed lorem diam amet eos magna. Dolor kasd lorem duo stet kasd
-                                    justo</p>
-                                <a href=""
-                                    class="border-bottom border-secondary text-decoration-none text-secondary">Learn
-                                    More</a>
+                                <h5 class="font-weight-semi-bold mt-5 mb-3 pt-5">{{ item.title }}</h5>
+                                <p>{{ item.abstract }}</p>
+                                <a href="/home/knowledge/{{ item.id }}"
+                                    class="border-bottom border-secondary text-decoration-none text-secondary">更多</a>
                             </div>
                         </div>
-                        <div class="service-item">
-                            <div class="service-img mx-auto">
-                                <img class="rounded-circle w-100 h-100 bg-light p-3"
-                                    src="{% static 'img/service-2.jpg' %}" style="object-fit: cover;">
-                            </div>
-                            <div class="position-relative text-center bg-light rounded p-4 pb-5"
-                                style="margin-top: -75px;">
-                                <h5 class="font-weight-semi-bold mt-5 mb-3 pt-5">Individual Approach</h5>
-                                <p>Dolor nonumy sed eos sed lorem diam amet eos magna. Dolor kasd lorem duo stet kasd
-                                    justo</p>
-                                <a href=""
-                                    class="border-bottom border-secondary text-decoration-none text-secondary">Learn
-                                    More</a>
-                            </div>
-                        </div>
-                        <div class="service-item">
-                            <div class="service-img mx-auto">
-                                <img class="rounded-circle w-100 h-100 bg-light p-3"
-                                    src="{% static 'img/service-3.jpg' %}" style="object-fit: cover;">
-                            </div>
-                            <div class="position-relative text-center bg-light rounded p-4 pb-5"
-                                style="margin-top: -75px;">
-                                <h5 class="font-weight-semi-bold mt-5 mb-3 pt-5">Celebration Ice Cream</h5>
-                                <p>Dolor nonumy sed eos sed lorem diam amet eos magna. Dolor kasd lorem duo stet kasd
-                                    justo</p>
-                                <a href=""
-                                    class="border-bottom border-secondary text-decoration-none text-secondary">Learn
-                                    More</a>
-                            </div>
-                        </div>
-                        <div class="service-item">
-                            <div class="service-img mx-auto">
-                                <img class="rounded-circle w-100 h-100 bg-light p-3"
-                                    src="{% static 'img/service-4.jpg' %}" style="object-fit: cover;">
-                            </div>
-                            <div class="position-relative text-center bg-light rounded p-4 pb-5"
-                                style="margin-top: -75px;">
-                                <h5 class="font-weight-semi-bold mt-5 mb-3 pt-5">Delivery To Any Point</h5>
-                                <p>Dolor nonumy sed eos sed lorem diam amet eos magna. Dolor kasd lorem duo stet kasd
-                                    justo</p>
-                                <a href=""
-                                    class="border-bottom border-secondary text-decoration-none text-secondary">Learn
-                                    More</a>
-                            </div>
-                        </div>
+                        {% endfor %}
+                        
                     </div>
                 </div>
             </div>
@@ -345,54 +308,54 @@
     <div class="container-fluid my-5 py-5 px-0">
         <div class="row justify-content-center m-0">
             <div class="col-lg-5">
-                <h1 class="section-title position-relative text-center mb-5">真实鼠  & AI鼠画廊</h1>
+                <h1 class="section-title position-relative text-center mb-5">AI鼠画廊</h1>
             </div>
         </div>
         <div class="row m-0 portfolio-container">
             <div class="col-lg-4 col-md-6 p-0 portfolio-item">
                 <div class="position-relative overflow-hidden">
-                    <img class="img-fluid w-100" src="{% static 'img/portfolio-1.jpg' %}" alt="">
-                    <a class="portfolio-btn" href="{% static 'img/portfolio-1.jpg' %}" data-lightbox="portfolio">
+                    <img class="img-fluid w-100" src="{{ minio_url }}/kathyblog-general/1.jpg" alt="">
+                    <a class="portfolio-btn" href="{{ minio_url }}/kathyblog-general/1.jpg" data-lightbox="portfolio">
                         <i class="fa fa-plus text-primary" style="font-size: 60px;"></i>
                     </a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 p-0 portfolio-item">
                 <div class="position-relative overflow-hidden">
-                    <img class="img-fluid w-100" src="{% static 'img/portfolio-2.jpg' %}" alt="">
-                    <a class="portfolio-btn" href="{% static 'img/portfolio-2.jpg' %}" data-lightbox="portfolio">
+                    <img class="img-fluid w-100" src="{{ minio_url }}/kathyblog-general/2.jpg" alt="">
+                    <a class="portfolio-btn" href="{{ minio_url }}/kathyblog-general/2.jpg" data-lightbox="portfolio">
                         <i class="fa fa-plus text-primary" style="font-size: 60px;"></i>
                     </a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 p-0 portfolio-item">
                 <div class="position-relative overflow-hidden">
-                    <img class="img-fluid w-100" src="{% static 'img/portfolio-3.jpg' %}" alt="">
-                    <a class="portfolio-btn" href="{% static 'img/portfolio-3.jpg' %}" data-lightbox="portfolio">
+                    <img class="img-fluid w-100" src="{{ minio_url }}/kathyblog-general/8.JPG" alt="">
+                    <a class="portfolio-btn" href="{{ minio_url }}/kathyblog-general/8.JPG" data-lightbox="portfolio">
                         <i class="fa fa-plus text-primary" style="font-size: 60px;"></i>
                     </a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 p-0 portfolio-item">
                 <div class="position-relative overflow-hidden">
-                    <img class="img-fluid w-100" src="{% static 'img/portfolio-4.jpg' %}" alt="">
-                    <a class="portfolio-btn" href="{% static 'img/portfolio-4.jpg' %}" data-lightbox="portfolio">
+                    <img class="img-fluid w-100" src="{{ minio_url }}/kathyblog-general/IMG_0309.JPG" alt="">
+                    <a class="portfolio-btn" href="{{ minio_url }}/kathyblog-general/IMG_0309.JPG" data-lightbox="portfolio">
                         <i class="fa fa-plus text-primary" style="font-size: 60px;"></i>
                     </a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 p-0 portfolio-item">
                 <div class="position-relative overflow-hidden">
-                    <img class="img-fluid w-100" src="{% static 'img/portfolio-5.jpg' %}" alt="">
-                    <a class="portfolio-btn" href="{% static 'img/portfolio-5.jpg' %}" data-lightbox="portfolio">
+                    <img class="img-fluid w-100" src="{{ minio_url }}/kathyblog-general/IMG_0458.JPG" alt="">
+                    <a class="portfolio-btn" href="{{ minio_url }}/kathyblog-general/IMG_0458.JPG" data-lightbox="portfolio">
                         <i class="fa fa-plus text-primary" style="font-size: 60px;"></i>
                     </a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 p-0 portfolio-item">
                 <div class="position-relative overflow-hidden">
-                    <img class="img-fluid w-100" src="{% static 'img/portfolio-6.jpg' %}" alt="">
-                    <a class="portfolio-btn" href="{% static 'img/portfolio-6.jpg' %}" data-lightbox="portfolio">
+                    <img class="img-fluid w-100" src="{{ minio_url }}/kathyblog-general/IMG_0801.JPG" alt="">
+                    <a class="portfolio-btn" href="{{ minio_url }}/kathyblog-general/IMG_0801.JPG" data-lightbox="portfolio">
                         <i class="fa fa-plus text-primary" style="font-size: 60px;"></i>
                     </a>
                 </div>
@@ -593,7 +556,7 @@
         <div class="container text-center py-5">
             <div class="row">
                 <div class="col-12 mb-4">
-                    <a href="index.html" class="navbar-brand m-0">
+                    <!-- <a href="index.html" class="navbar-brand m-0"> -->
                         <h1 class="m-0 mt-n2 display-4 text-primary"><span class="text-secondary">联系</span>阿呆阿瓜的娘</h1>
                     </a>
                 </div>
@@ -653,3 +616,4 @@
 </body>
 
 </html>
+
