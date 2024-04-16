@@ -10,8 +10,8 @@ from minio import Minio
 import json
 
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'kathyblog.local_settings')
-# os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'kathyblog.publish_settings')
+# os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'kathyblog.local_settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'kathyblog.publish_settings')
 
 # from img_compare import img_compare_dict
 from django.conf import settings
