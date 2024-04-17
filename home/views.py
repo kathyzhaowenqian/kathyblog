@@ -103,7 +103,7 @@ class CONTACTS(View):
 
 class DRAGON_GAME(View):
     def get(self,request):
-        return redirect('http://www.wenqianzhao.com:8501')
+        return redirect('http://www.wenqianzhao.com:6501')
     
 
 class TEST(View):
