@@ -38,6 +38,14 @@ class BlogListAdmin(admin.ModelAdmin):
     inlines=[BlogDetailInline]
     exclude = ('id','createtime','updatetime','is_active')
     required = ('image_url',)
+
+
 @admin.register(BlogDetail)  
 class BlogDetailAdmin(admin.ModelAdmin):   
+    exclude = ('id','createtime','updatetime','is_active')
+
+
+@admin.register(Contacts)  
+class ContactsAdmin(admin.ModelAdmin):   
+    list_display=['name','email','subject','content','createtime']
     exclude = ('id','createtime','updatetime','is_active')

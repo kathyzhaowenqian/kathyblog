@@ -4,7 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <title>iCREAM - Ice Cream Shop Website Template</title>
+    <title>联系龙猫阿呆阿瓜的娘</title>
+    <meta name="keywords" conent="龙猫,宠物龙猫,龙猫饲养,龙猫价格,龙猫知识科普,龙猫百科,龙猫星球">
+    <meta name="description" conent="龙猫是一种可爱的小型宠物,性格温顺,非常适合家庭饲养。了解龙猫的特点,如何正确饲养,尽在本网站。">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -83,16 +85,16 @@
                         <a href="/home" class="nav-item nav-link active">主页</a>
                         <a href="/home/about" class="nav-item nav-link">简介</a>
                         <a href="/home/project" class="nav-item nav-link">AI项目</a>
-                        
+
                     </div>
                     <a href="/home" class="navbar-brand mx-5 d-none d-lg-block">
                         <h1 class="m-0 display-4 text-primary"><span class="text-secondary">阿呆</span>阿瓜</h1>
                     </a>
                     <div class="navbar-nav mr-auto py-0">
                         <a href="/home/gallery" class="nav-item nav-link">画廊</a>
-                        <a href="" class="nav-item nav-link">科普</a>
+                        <a href="/home/knowledge" class="nav-item nav-link">科普</a>
                         <!-- /home/knowledge -->
-                        <a href="" class="nav-item nav-link">联系</a> 
+                        <a href="/home/contact" class="nav-item nav-link">联系</a>
                         <!-- /home/contact -->
                     </div>
                 </div>
@@ -105,11 +107,11 @@
     <!-- Header Start -->
     <div class="jumbotron jumbotron-fluid page-header" style="margin-bottom: 90px;">
         <div class="container text-center py-5">
-            <h1 class="text-white display-3 mt-lg-5">Contact</h1>
+            <h1 class="text-white display-3 mt-lg-5">联系我们</h1>
             <div class="d-inline-flex align-items-center text-white">
-                <p class="m-0"><a class="text-white" href="">Home</a></p>
+                <p class="m-0"><a class="text-white" href="/home">主页</a></p>
                 <i class="fa fa-circle px-3"></i>
-                <p class="m-0">Contact</p>
+                <p class="m-0">联系我们</p>
             </div>
         </div>
     </div>
@@ -121,7 +123,7 @@
         <div class="container py-5">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
-                    <h1 class="section-title position-relative text-center mb-5">Contact Us For Any Query</h1>
+                    <h1 class="section-title position-relative text-center mb-5">联系阿呆阿瓜的娘</h1>
                 </div>
             </div>
             <div class="row justify-content-center">
@@ -131,24 +133,31 @@
                         <form name="sentMessage" id="contactForm" novalidate="novalidate">
                             <div class="form-row">
                                 <div class="col-sm-6 control-group">
-                                    <input type="text" class="form-control p-4" id="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
+                                    <input type="text" class="form-control p-4" id="name" placeholder="您的姓名"
+                                        required="required" data-validation-required-message="请输入您的姓名" />
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="col-sm-6 control-group">
-                                    <input type="email" class="form-control p-4" id="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
+                                    <input type="email" class="form-control p-4" id="email" placeholder="您的邮箱"
+                                        required="required" data-validation-required-message="请输入您的邮箱" />
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="control-group">
-                                <input type="text" class="form-control p-4" id="subject" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
+                                <input type="text" class="form-control p-4" id="subject" placeholder="主题"
+                                    required="required" data-validation-required-message="请输入主题" />
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="control-group">
-                                <textarea class="form-control p-4" rows="6" id="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
+                                <textarea class="form-control p-4" rows="6" id="message" placeholder="内容"
+                                    required="required" data-validation-required-message="请输入内容"></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div>
-                                <button class="btn btn-primary btn-block py-3 px-5" type="submit" id="sendMessageButton">Send Message</button>
+                                <!-- <button class="btn btn-primary btn-block py-3 px-5" type="submit"
+                                    id="sendMessageButton">发送</button> -->
+                                <button class="btn btn-primary btn-block py-3 px-5" type="submit"
+                                    id="sendMessage">发送</button>
                             </div>
                         </form>
                     </div>
@@ -164,34 +173,46 @@
         <div class="container text-center py-5">
             <div class="row">
                 <div class="col-12 mb-4">
-                    <a href="index.html" class="navbar-brand m-0">
-                        <h1 class="m-0 mt-n2 display-4 text-primary"><span class="text-secondary">i</span>CREAM</h1>
+                    <!-- <a href="index.html" class="navbar-brand m-0"> -->
+                    <h1 class="m-0 mt-n2 display-4 text-primary"><span class="text-secondary">联系</span>阿呆阿瓜的娘</h1>
                     </a>
                 </div>
                 <div class="col-12 mb-4">
-                    <a class="btn btn-outline-secondary btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-outline-secondary btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-outline-secondary btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-outline-secondary btn-social" href="#"><i class="fab fa-instagram"></i></a>
+                    <a class="btn btn-outline-secondary btn-social mr-1"
+                        href="https://www.xiaohongshu.com/user/profile/593635ba33594a3e7b4ac3d2?xhsshare=CopyLink&appuid=593635ba33594a3e7b4ac3d2&apptime=1713332851"
+                        target="_blank"><i class="fas fa-book"></i></a>
+                    <a class="btn btn-outline-secondary btn-social mr-1" href="https://b23.tv/0R67GK9"
+                        target="_blank"><i class="fas fa-bold"></i></a>
+                    <a class="btn btn-outline-secondary btn-social mr-1"
+                        href="https://www.douyin.com/user/MS4wLjABAAAAOc1LZ2PW_LevsoufIYEUepyOmtoGHLscRQOFiMtsrZJeYpjZy7Flaharnl49umzH"
+                        target="_blank"><i class="fas fa-music"></i></a>
+                    <a class="btn btn-outline-secondary btn-social mr-1"
+                        href="https://www.instagram.com/kathy.zhaowq?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr"
+                        target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a class="btn btn-outline-secondary btn-social mr-1" href="https://www.youtube.com/@kathyzwq"
+                        target="_blank"><i class="fab fa-youtube"></i></a>
+
                 </div>
                 <div class="col-12 mt-2 mb-4">
                     <div class="row">
                         <div class="col-sm-6 text-center text-sm-right border-right mb-3 mb-sm-0">
-                            <h5 class="font-weight-bold mb-2">Get In Touch</h5>
-                            <p class="mb-2">123 Street, New York, USA</p>
-                            <p class="mb-0">+012 345 67890</p>
+                            <h5 class="font-weight-bold mb-2">邮箱</h5>
+                            <p class="mb-2">adaiaguadeniang@163.com</p>
+                            <!-- <p class="mb-2"></p>(阿呆阿瓜的娘 拼音)</p> -->
+                            <!-- <p class="mb-0">+012 345 67890</p> -->
                         </div>
                         <div class="col-sm-6 text-center text-sm-left">
-                            <h5 class="font-weight-bold mb-2">Opening Hours</h5>
-                            <p class="mb-2">Mon – Sat, 8AM – 5PM</p>
-                            <p class="mb-0">Sunday: Closed</p>
+                            <h5 class="font-weight-bold mb-2">小红书/b站/抖音</h5>
+                            <p class="mb-2">搜索：阿呆阿瓜的娘</p>
+                            <!-- <p class="mb-0">Sunday: Closed</p> -->
                         </div>
                     </div>
                 </div>
-                <div class="col-12">
-                    <p class="m-0">&copy; <a href="#">Domain</a>. All Rights Reserved. Designed by <a href="https://htmlcodex.com">HTML Codex</a>
-                    </p>
-                </div>
+                <!-- <div class="col-12">
+                <p class="m-0">&copy; <a href="#">Domain</a>. All Rights Reserved. Designed by <a
+                        href="https://htmlcodex.com">HTML Codex</a>
+                </p>
+            </div> -->
             </div>
         </div>
     </div>
@@ -215,10 +236,112 @@
 
     <!-- Contact Javascript File -->
     <script src="{% static 'mail/jqBootstrapValidation.min.js' %}"></script>
-    <script src="{% static 'mail/contact.js' %}"></script>
+    <!-- <script src="{% static 'mail/contact.js' %}"></script> -->
 
     <!-- Template Javascript -->
     <script src="{% static 'js/main.js' %}"></script>
 </body>
 
 </html>
+<!-- 
+<script>
+    $(document).ready(function() {
+        $('#contactForm').submit(function(e) {
+            e.preventDefault();
+            
+            var formData = {
+            'name': $('#name').val(),
+            'email': $('#email').val(),
+            'subject': $('#subject').val(),
+            'message': $('#message').val()
+            };            
+            console.log('formData',formData)
+            $.ajax({
+                type: 'POST',
+                url: '/home/contact/submit/',
+                data: formData,
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                success: function(response) {
+                    alert('数据已成功提交！');
+                    // 可以根据需求执行其他操作，比如重定向到其他页面
+                },
+                error: function(error) {
+                    alert('提交数据时出错！');
+                }
+            });
+        });
+    });
+    </script>
+     -->
+<script>
+    $(function () {
+
+        $("#contactForm input, #contactForm textarea").jqBootstrapValidation({
+            preventSubmit: true,
+            submitError: function ($form, event, errors) {
+            },
+            submitSuccess: function ($form, event) {
+                event.preventDefault();
+                var name = $("input#name").val();
+                var email = $("input#email").val();
+                var subject = $("input#subject").val();
+                var message = $("textarea#message").val();
+
+                $this = $("#sendMessageButton");
+                $this.prop("disabled", true);
+
+                $.ajax({
+                    url: "/home/contact/submit/",//"contact.php",
+                    type: "POST",
+                    data: {
+                        name: name,
+                        email: email,
+                        subject: subject,
+                        message: message
+                    },
+                    headers: {
+                        'X-CSRFToken': '{{ csrf_token }}'
+                    },
+                    cache: false,
+                    success: function () {
+                        $('#success').html("<div class='alert alert-success'>");
+                        $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
+                            .append("</button>");
+                        $('#success > .alert-success')
+                            .append("<strong> 信息已成功发送 </strong>");
+                        $('#success > .alert-success')
+                            .append('</div>');
+                        $('#contactForm').trigger("reset");
+                    },
+                    error: function () {
+                        $('#success').html("<div class='alert alert-danger'>");
+                        $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
+                            .append("</button>");
+                        $('#success > .alert-danger').append($("<strong>").text("Sorry " + name + ", 填报有误或网络错误"));
+                        $('#success > .alert-danger').append('</div>');
+                        $('#contactForm').trigger("reset");
+                    },
+                    complete: function () {
+                        setTimeout(function () {
+                            $this.prop("disabled", false);
+                        }, 1000);
+                    }
+                });
+            },
+            filter: function () {
+                return $(this).is(":visible");
+            },
+        });
+
+        $("a[data-toggle=\"tab\"]").click(function (e) {
+            e.preventDefault();
+            $(this).tab("show");
+        });
+    });
+
+    $('#name').focus(function () {
+        $('#success').html('');
+    });
+</script>

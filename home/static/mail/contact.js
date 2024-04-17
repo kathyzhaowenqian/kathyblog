@@ -23,6 +23,7 @@ $(function () {
                     subject: subject,
                     message: message
                 },
+               
                 cache: false,
                 success: function () {
                     $('#success').html("<div class='alert alert-success'>");

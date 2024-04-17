@@ -16,6 +16,7 @@ urlpatterns = [
     
     path('test/',TEST.as_view()),
     path('test2/',TEST2.as_view()),
+    path('contact/submit/', CONTACTS.as_view())
   
 ]
 

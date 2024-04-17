@@ -71,7 +71,7 @@ class KNOWLEDGE_DETAILS(View):
 
         blog_list = BlogList.objects.get(id = pk)
         blogdetails=blog_list.blogdetail.article_detail
-        result ={'title': blog_list.title,'abstract': blog_list.abstract, 'image_url': f'{minio_url}/{bucket}/'+str(blog_list.image_url) ,'category': blog_list.category.category ,'reference': blog_list.reference, 'date' : blog_list.createtime.strftime("%Y年%m月%d日"), 'blogdetails':blogdetails}
+        result ={'title': blog_list.title,'abstract': '摘要：'+blog_list.abstract, 'image_url': f'{minio_url}/{bucket}/'+str(blog_list.image_url) ,'category': blog_list.category.category ,'reference': blog_list.reference, 'date' : blog_list.createtime.strftime("%Y年%m月%d日"), 'blogdetails':blogdetails}
         # print(result)
         # result = json.dumps(result1)
         return render(request, 'knowledgedetails.html', result)
@@ -88,7 +88,19 @@ class CONTACT(View):
     def get(self,request):
         return render(request, 'contact.html')  
 
-    
+class CONTACTS(View):
+    def post(self,request):
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        subject = request.POST.get('subject')
+        content = request.POST.get('message')
+        print('返回值',name,email,subject,content)
+        Contacts.objects.create(name=name, email=email, subject=subject, content=content)
+
+        # 返回JSON响应
+        return JsonResponse({'success': True})
+
+
 class DRAGON_GAME(View):
     def get(self,request):
         return redirect('http://127.0.0.1:8501')
@@ -127,3 +139,4 @@ class TEST2(View):
         image = ImageModel(image=image_file)
         image.save()
         
+

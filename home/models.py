@@ -132,3 +132,20 @@ class BlogDetail(models.Model):
 # create time
 # update time
 # is activate
+
+
+class Contacts(models.Model):
+    name= models.CharField(verbose_name='姓名',max_length=255,blank=False, null=False)
+    email= models.CharField(verbose_name='邮箱',max_length=255,blank=False, null=False)
+    subject= models.CharField(verbose_name='主题',max_length=255,blank=False, null=False)
+    content= models.CharField(verbose_name='内容',max_length=255,blank=False, null=False)
+    createtime = models.DateTimeField(auto_now_add=True)
+    updatetime = models.DateTimeField(auto_now=True)
+    is_active=models.BooleanField(verbose_name='是否呈现',null=False, default = True)
+    class Meta:
+        db_table = 'blogs\".\"Contacts'
+        # verbose_name = '公司列表'
+        verbose_name_plural = '联系我们'
+
+    def __str__(self):
+            return self.subject
