@@ -17,7 +17,7 @@ import json
 # from img_compare import img_compare_dict
 # from django.conf import settings
 
-from kathyblog.kathyblog import publish_settings as settings
+import streamlit_config as settings
 
 # from config.LLM_API import *
 # def main():
