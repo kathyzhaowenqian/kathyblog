@@ -6,7 +6,7 @@ services:
     image: KATHYBLOG_IMAGE
     #command: python manage.py runserver 0.0.0.0:8000
     # 先收集静态文件夹，--noinput 是直接覆盖原有的文件.然后uwsgi 启动
-    command: bash -c "python manage.py collectstatic --noinput && uwsgi --ini uwsgi.ini"
+    command: bash -c "python manage.py collectstatic --noinput && uwsgi --ini uwsgi.ini && streamlit run streamlit/dragongame.py"
     #command: uwsgi --http :8000 --module myobject.wsgi --py-autoreload=1
     volumes:
       #把静态文件夹目录挂载出来,方便 nginx 转发
@@ -17,7 +17,7 @@ services:
         
     ports:
       - "6500:8000"
-      # - "6501:8501"
+      - "6501:8501"
     restart: always
 
      # 限制容器日志的大小
@@ -27,14 +27,4 @@ services:
         max-size: "100m"
         max-file: "3"
 
-  streamlit:
-    image: KATHYBLOG_IMAGE
-    command: bash -c "streamlit run streamlit/dragongame.py”
-    ports:
-      - "6501:8501"
-    restart: always
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "100m"
-        max-file: "3"
+  
