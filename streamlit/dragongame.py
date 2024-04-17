@@ -8,14 +8,16 @@ import os
 from datetime import timedelta
 from minio import Minio
 import json
-import django
+# import django
 
-# os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'kathyblog.local_settings')
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'kathyblog.publish_settings')
-django.setup()
+# # os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'kathyblog.local_settings')
+# os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'kathyblog.publish_settings')
+# django.setup()
 
 # from img_compare import img_compare_dict
-from django.conf import settings
+# from django.conf import settings
+
+from kathyblog import publish_settings as settings
 
 # from config.LLM_API import *
 # def main():
