@@ -5,6 +5,7 @@ urlpatterns = [
     path('about/',ABOUT.as_view()),
     path('gallery/',GALLERY.as_view()),
     path('project/',PROJECT.as_view()),
+    path('getknowledgelist/',GET_KNOWLEDGELIST.as_view()),
     
     path('knowledge/',KNOWLEDGE.as_view()),
     path('knowledge/<int:pk>/',KNOWLEDGE_DETAILS.as_view()),

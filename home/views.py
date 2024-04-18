@@ -19,9 +19,30 @@ class MainPage(View):
     def get(self,request):
         bucket=settings.MINIO_STORAGE_MEDIA_BUCKET_NAME
         minio_url = settings.MINIO_URL
-        blog_articles=BlogList.objects.values('id', 'title', 'abstract','image_url').order_by('-createtime')
+        blog_articles = BlogList.objects.values('id', 'title', 'abstract', 'image_url').order_by('-createtime')[:10]
+        
+        for article in blog_articles:
+            abstract = article['abstract']
+            if len(abstract) > 50:
+                article['abstract'] = f"{abstract[:50]}..."
+        blog_articles = list(blog_articles)
         return render(request, 'index.html',locals())
     
+ 
+class GET_KNOWLEDGELIST(View):
+    def get(self, request):
+        bucket=settings.MINIO_STORAGE_MEDIA_BUCKET_NAME
+        minio_url = settings.MINIO_URL
+        blog_articles = BlogList.objects.values('id', 'title', 'abstract', 'image_url').order_by('-createtime')[:10]
+        
+        for article in blog_articles:
+            abstract = article['abstract']
+            if len(abstract) > 50:
+                article['abstract'] = f"{abstract[:50]}..."
+        serialized_articles = list(blog_articles)
+        return JsonResponse({'blog_articles': serialized_articles,'bucket':bucket,'minio_url':minio_url})
+    
+
 class ABOUT(View):
     def get(self,request):
         return render(request, 'about.html')
@@ -38,9 +59,16 @@ class GALLERY(View):
         bucket='kathyblog-gallery'
         folder='ai-chinchilla-watermark'
         objects = MinioClient.list_objects(bucket,prefix=folder, recursive=True)
-        obj_list=list(objects)
-        # print(obj_list)
-        testobj=obj_list[:30]
+        # 列出存储桶中的对象
+
+        # 对对象根据上传时间进行排序
+        sorted_objects = sorted(objects, key=lambda obj: obj.last_modified, reverse=True)
+
+        # 获取最新的10张图片
+        latest_images = sorted_objects[:300]
+        testobj=list(latest_images)
+        print(testobj)
+       
         image_path_list=[]
         for i in testobj:
             full_file_path = f'{minio_url}/{bucket}/{i.object_name}'
