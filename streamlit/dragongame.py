@@ -8,6 +8,7 @@ import os
 from datetime import timedelta
 from minio import Minio
 import json
+
 # import django
 
 # # os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'kathyblog.local_settings')
@@ -19,12 +20,20 @@ import json
 
 import streamlit_config as settings
 
+
+
 # from config.LLM_API import *
 # def main():
 
 minio_url = settings.MINIO_URL
 # st.image(image='{minio_url}/defeatant/3.png')
-
+st.set_page_config(
+    page_title="龙猫阿呆斗恶龙",
+    page_icon=f'{minio_url}/dragongame/favicon.png',
+    menu_items={
+        'About': "created by 阿呆阿瓜的娘"
+    }
+)
 #--------------------------------------------
 APIKEY=settings.APIKEY_OPENAI
 ORGANIZATION = settings.ORGANIZATION_OPENAI

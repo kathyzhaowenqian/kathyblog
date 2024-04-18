@@ -140,6 +140,7 @@
     <div class="d-flex justify-content-center">
         <div class="row justify-content-center">
             <div class="col-lg-10">
+                <div class="mt-4 pl-5 pr-5">
                 <img class="img-fluid" src="{{ image_url }}" alt="">
                 <h1 class="text-black add-letter-space mt-4">{{ title }}</h1>
                 <ul class="post-meta mt-3 mb-4">
@@ -152,10 +153,11 @@
                         <a class="ml-1" href="#">{{ category }}</a>
                     </li>
                 </ul>
-                <p> <a class="ml-1" href="{{ reference }}">{{ reference }}</a></p>
-                <p> <strong>{{ abstract }}</strong></p>
-                {{ blogdetails|safe }}
-
+                
+                    <p> <a href="{{ reference }}">{{ reference }}</a></p>
+                    <p> <strong>{{ abstract }}</strong></p>
+                    <p>{{ blogdetails|safe }}</p>
+                </div>
 
 
             </div>
