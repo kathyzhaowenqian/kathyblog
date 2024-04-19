@@ -184,7 +184,32 @@
                 <h1 class="section-title position-relative text-center mb-5">AI项目</h1>
             </div> -->
         </div>
-
+        <div class="container-fluid my-1 py-1 px-0">
+            <div class="row bg-primary m-0">
+                <div class="col-md-6 px-0" style="min-height: 500px;">
+                    <div class="position-relative h-100">
+                        <video class="position-absolute w-100 h-100" frameborder=0 'allowfullscreen' style="object-fit: cover;" controls poster="{{ minio_url }}/{{ bucket }}/dragongamevideocover.jpg">
+                            <source src="{{ minio_url }}/{{ bucket }}/videosummary_youku.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                           
+                    </div> 
+                </div>
+                <div class="col-md-6 py-5 py-md-0 px-0">
+                    <div class="h-100 d-flex flex-column align-items-center justify-content-center text-center p-5">
+                        <div class="d-flex align-items-center justify-content-center bg-white rounded-circle mb-4"
+                            style="width: 120px; height: 120px;">
+                            <h3 class="font-weight-bold text-secondary mb-0">文字游戏</h3>
+                        </div>
+                        <h3 class="font-weight-bold text-white mt-3 mb-4">龙猫阿呆斗恶龙</h3>
+                        <p class="text-white mb-4">用户扮演小龙猫阿呆🐹，阿呆的好友阿瓜公主👸被邪恶的龙王🐲抓走关进了森林深处的城堡🏰！
+    
+                            为了拯救她，阿呆需要穿越田野🌾和森林🌲，与小怪👾战斗，不断提升自己的力量⚔️，最终前往城堡🏰挑战恶龙王🐲，解救被困的阿瓜公主👸！</p>
+                        <a href="/home/project/dragongame" target="_blank" class="btn btn-secondary py-3 px-5 mt-2">开始游戏</a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row bg-primary m-0">
             <div class="col-md-6 px-0" style="min-height: 500px;">
                 <div class="position-relative h-100">
@@ -195,8 +220,8 @@
                         <span></span>
                     </button> -->
                     <!-- <iframe class="position-absolute w-100 h-100" src='https://player.youku.com/embed/XNjM4NjU2Nzk0MA==' frameborder=0 'allowfullscreen' style="object-fit: cover;"></iframe> -->
-                    <video class="position-absolute w-100 h-100" frameborder=0 'allowfullscreen' style="object-fit: cover;" controls>
-                        <source src="http://106.14.9.212:9000/kathyblog-general/videosummary_youku.mp4" type="video/mp4">
+                    <video class="position-absolute w-100 h-100" frameborder=0 'allowfullscreen' style="object-fit: cover;" controls poster="{{ minio_url }}/{{ bucket }}/videosummarycover.jpg">
+                        <source src="{{ minio_url }}/{{ bucket }}/videosummary_youku.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>

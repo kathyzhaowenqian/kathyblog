@@ -49,7 +49,9 @@ class ABOUT(View):
 
 class PROJECT(View):
     def get(self,request):
-        return render(request, 'project.html')
+        minio_url = settings.MINIO_URL
+        bucket=settings.MINIO_STORAGE_MEDIA_BUCKET_NAME
+        return render(request, 'project.html',locals())
     
 class GALLERY(View):
     def get(self,request):
