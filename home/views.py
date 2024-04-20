@@ -45,7 +45,9 @@ class GET_KNOWLEDGELIST(View):
 
 class ABOUT(View):
     def get(self,request):
-        return render(request, 'about.html')
+        bucket=settings.MINIO_STORAGE_MEDIA_BUCKET_NAME
+        minio_url = settings.MINIO_URL
+        return render(request, 'about.html',locals())
 
 class PROJECT(View):
     def get(self,request):

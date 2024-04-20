@@ -245,13 +245,13 @@
 
 
 
-    <!-- [{'id': 1, 'title': '阿呆', 'abstract': '是小宝宝', 'image_url': 'http://106.14.9.212:9000/kathyblog-gallery/blog/三花.jpg', 'category': '饲养技巧', 'reference': 'https://blog.csdn.net/gymaisyl/article', 'date': '2024年04月12日'},
-         {'id': 2, 'title': '阿瓜', 'abstract': '阿瓜吵死了', 'image_url': 'http://106.14.9.212:9000/kathyblog-gallery/blog/agua.png', 'category': '饮食习性', 'reference': None, 'date': '2024年04月12日'}] -->
+    <!-- [{'id': 1, 'title': '阿呆', 'abstract': '是小宝宝', 'image_url': '{{ minio_url }}/{{ bucket }}/blog/三花.jpg', 'category': '饲养技巧', 'reference': 'https://blog.csdn.net/gymaisyl/article', 'date': '2024年04月12日'},
+         {'id': 2, 'title': '阿瓜', 'abstract': '阿瓜吵死了', 'image_url': '{{ minio_url }}/{{ bucket }}/blog/agua.png', 'category': '饮食习性', 'reference': None, 'date': '2024年04月12日'}] -->
     <!-- <div class="row justify-content-between mx-5"  >
         <div class="col-lg-7">
             <div class="card post-item bg-transparent border-0 mb-5">
                 <a href="1/">
-                    <img class="card-img-top rounded-0" src="http://106.14.9.212:9000/kathyblog-general/blog/三花.jpg"  alt="">
+                    <img class="card-img-top rounded-0" src="{{ minio_url }}/{{ bucket }}/blog/三花.jpg"  alt="">
                 </a>
                 <div class="card-body px-0">
                     <h2 class="card-title">
@@ -322,7 +322,7 @@
         <!-- <div class="col-lg-5">
             <div class="card post-item bg-transparent border-0 mb-5">
                 <a href="/postDetails/">
-                    <img class="card-img-top rounded-0" src="http://106.14.9.212:9000/kathyblog-general/blog/三花.jpg" alt="">
+                    <img class="card-img-top rounded-0" src="{{ minio_url }}/{{ bucket }}/blog/三花.jpg" alt="">
                 </a>
                 <div class="card-body px-0">
                     <h2 class="card-title">
