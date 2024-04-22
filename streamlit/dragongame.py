@@ -50,7 +50,7 @@ MINIO_STORAGE_SECRETKEY=settings.MINIO_STORAGE_SECRET_KEY
 MinioClient = Minio(MINIO_STORAGEENDPOINT,
     access_key=MINIO_STORAGE_ACCESSKEY,
     secret_key=MINIO_STORAGE_SECRETKEY,
-    secure=False
+    secure=True
 )
 bucket='dragongame'
 SCENE_ORDER='''按顺序：

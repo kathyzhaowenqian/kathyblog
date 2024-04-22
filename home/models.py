@@ -14,7 +14,7 @@ from minio.error import S3Error
 MinioClient = Minio(settings.MINIO_STORAGE_ENDPOINT,
     access_key=settings.MINIO_STORAGE_ACCESS_KEY,
     secret_key=settings.MINIO_STORAGE_SECRET_KEY,
-    secure=False
+    secure=True  #https
 )
 # 要用富文本编辑器
 

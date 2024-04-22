@@ -12,7 +12,7 @@ from datetime import datetime
 MinioClient = Minio(settings.MINIO_STORAGE_ENDPOINT,
     access_key=settings.MINIO_STORAGE_ACCESS_KEY,
     secret_key=settings.MINIO_STORAGE_SECRET_KEY,
-    secure=False
+    secure=True  #https
 )
 # Create your views here.
 class MainPage(View):
@@ -136,7 +136,7 @@ class CONTACTS(View):
 
 class DRAGON_GAME(View):
     def get(self,request):
-        return redirect('https://www.chinchillatown.com:6501')
+        return redirect('https://www.chinchillatown.com')
     
 
 class TEST(View):
