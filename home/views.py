@@ -129,6 +129,7 @@ class CONTACTS(View):
         print('返回值',name,email,subject,content)
         Contacts.objects.create(name=name, email=email, subject=subject, content=content)
 
+
         # 返回JSON响应
         return JsonResponse({'success': True})
 
