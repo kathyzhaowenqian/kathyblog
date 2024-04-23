@@ -31,9 +31,17 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
-
-
-
+    <style>
+    .portfolio-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    
+    .portfolio-item {
+        margin-bottom: 5px; /* Add some space between each portfolio item */
+    }
+    </style>
 
 
 </head>
@@ -348,11 +356,11 @@
         </div>
     </div>
     <!-- gallery End -->
-
-
+    
+    <br>
     <!-- Knowledge Start -->
     <div class="container-fluid py-5">
-        <div class="container py-5">
+        <div class="container  py-5">
             <div class="row">
                 <div class="col-lg-6">
                     <h1 class="section-title position-relative mb-5">龙猫知识科普</h1>
