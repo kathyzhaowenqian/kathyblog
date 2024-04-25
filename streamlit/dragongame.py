@@ -28,10 +28,10 @@ import streamlit_config as settings
 minio_url = settings.MINIO_URL
 # st.image(image='{minio_url}/defeatant/3.png')
 st.set_page_config(
-    page_title="龙猫阿呆斗恶龙",
+    page_title="龙猫斗恶龙",
     page_icon=f'{minio_url}/dragongame/favicon.png',
     menu_items={
-        'About': "created by 阿呆阿瓜的娘"
+        'About': "created by 阿呆阿瓜的娘 (Kathy Zhao)"
     }
 )
 #--------------------------------------------
@@ -275,7 +275,7 @@ if 'rows' not in st.session_state:
     st.session_state["adai_current_profile"]= {"HP":10, "ATTACK":1, "DEFENCE": 1, "exp":0, "lv":0}
     st.session_state["scene_monster_treasure"]={"场景":"绿油油的田野","小怪":"","宝藏":""}
     st.session_state['image_list']=[]
-    st.markdown(''' **龙猫阿呆斗恶龙**
+    st.markdown(''' **龙猫斗恶龙**
                 
 你是小龙猫阿呆🐹，你的好友阿瓜公主👸被邪恶的龙王🐲抓走关进了森林深处的城堡🏰！
                 
