@@ -5,8 +5,10 @@
 <head>
     <meta charset="utf-8">
     <title>{{ title }}</title>
-    <meta name="keywords" conent="龙猫,龙猫小镇,宠物龙猫,龙猫饲养,龙猫价格,龙猫知识科普,龙猫百科,龙猫星球, 龙猫游戏, 龙猫阿呆阿瓜, 龙猫阿呆斗恶龙,阿呆阿瓜的娘,  Chinchilla, Pet Chinchilla,Chinchilla care,Chinchilla price,Chinchilla knowledge popularization,Chinchilla encyclopedia,  Chinchilla planet, chinchilla game">
-    <meta name="description" conent="龙猫是一种可爱的小型宠物，性格温顺，非常适合家庭饲养。了解龙猫的特点、如何正确饲养,更多有关龙猫的知识以及玩龙猫主题游戏，请访问我们网站。chinchilla is a lovely small pet with a gentle temperament, perfect for home keeping. To learn more about the characteristics of chinchilla, how to properly care for them, and for more knowledge about chinchilla as well as playing chinchilla-themed games, please visit our website">
+    <meta name="keywords"
+        conent="龙猫,龙猫小镇,宠物龙猫,龙猫饲养,龙猫价格,龙猫知识科普,龙猫百科,龙猫星球, 龙猫游戏, 龙猫阿呆阿瓜, 龙猫阿呆斗恶龙,阿呆阿瓜的娘,  Chinchilla, Pet Chinchilla,Chinchilla care,Chinchilla price,Chinchilla knowledge popularization,Chinchilla encyclopedia,  Chinchilla planet, chinchilla game">
+    <meta name="description"
+        conent="龙猫是一种可爱的小型宠物，性格温顺，非常适合家庭饲养。了解龙猫的特点、如何正确饲养,更多有关龙猫的知识以及玩龙猫主题游戏，请访问我们网站。chinchilla is a lovely small pet with a gentle temperament, perfect for home keeping. To learn more about the characteristics of chinchilla, how to properly care for them, and for more knowledge about chinchilla as well as playing chinchilla-themed games, please visit our website">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -29,7 +31,6 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
-
 
 
 </head>
@@ -137,10 +138,12 @@
     <!-- Header End -->
     <!-- {'title': '阿呆', 'abstract': '是小宝宝', 'image_url': '{{ minio_url }}/{{ bucket }}/blog/三花.jpg', 'category': '饲养技巧', 'reference': 'https://blog.csdn.net/gymaisyl/article', 
         'blogdetails': '<pre>\r\n<span style="font-size:72px"><strong>阿呆是宝宝</strong></span></pre>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><img alt="" height="200" src="{{ minio_url }}/{{ bucket }}/blog/2024/04/12/adaiagua.png" style="float:left" width="200" /></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp; &nbsp;&nbsp;</p>\r\n\r\n<p><img alt="" height="182" src="{{ minio_url }}/{{ bucket }}/blog/2024/04/12/oig2.jpg" style="float:left" width="182" /></p>'} -->
-    <div class="d-flex justify-content-center">
-        <div class="row justify-content-center">
-            <div class="col-lg-10">
-                <div class="mt-4 pl-5 pr-5">
+
+    <!-- <div class="d-flex justify-content-center"> -->
+    <!-- <div class="row justify-content-center"> -->
+    <div class="row justify-content-between mx-1">
+        <div class="col-lg-10">
+            <div class="mt-4 pl-5 pr-5">
                 <img class="img-fluid" src="{{ image_url }}" alt="">
                 <h1 class="text-black add-letter-space mt-4">{{ title }}</h1>
                 <ul class="post-meta mt-3 mb-4">
@@ -153,16 +156,16 @@
                         <a class="ml-1" href="#">{{ category }}</a>
                     </li>
                 </ul>
-                
-                    <p> <a href="{{ reference }}">{{ reference }}</a></p>
-                    <p> <strong>{{ abstract }}</strong></p>
-                    <p>{{ blogdetails|safe }}</p>
-                </div>
 
-
+                <p><a href="{{ reference }}">{{ reference }}</a></p>
+                <p> <strong>{{ abstract }}</strong></p>
+                <p>{{ blogdetails|safe }}</p>
             </div>
+
+
         </div>
     </div>
+    <!-- </div> -->
 
 
 
@@ -230,7 +233,8 @@
 
     <!-- JavaScript Libraries -->
     <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
 
     <!-- <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script> -->
     <script src="{% static 'lib/easing/easing.min.js' %}"></script>
