@@ -19,7 +19,18 @@ import json
 # from django.conf import settings
 
 import streamlit_config as settings
+st.markdown(
+    """
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-L1TQ2L47Q7"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
+        gtag('config', 'G-L1TQ2L47Q7');
+        </script>
+    """, unsafe_allow_html=True)
 
 
 # from config.LLM_API import *
