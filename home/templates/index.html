@@ -41,6 +41,8 @@
     .portfolio-item {
         margin-bottom: 2px; /* Add some space between each portfolio item */
     }
+
+ 
     </style>
 
 
@@ -178,8 +180,12 @@
                 <div class="col-lg-4 py-5">
                     <h4 class="font-weight-bold mb-3">关于我们</h4>
                     <!-- <h5 class="text-muted mb-3">我们是可爱的龙猫</h5> -->
-                    <p>"2020年1月11日，当我们俩还是几个月大的宝宝时，我们被挂在了海鲜市场。麻麻刷到了我们，被我们毛茸茸、圆溜溜的模样迷倒了！她当天就急匆匆冒着大雨把我们接回了家。从那一天起，我们就和麻麻一起生活啦！吃得饱、住得大，麻麻每天还放我们出来玩耍30分钟，我们特别喜欢蹦床、在枕头上撒尿、在饭桌上拉屎，我们爱麻麻！"
+                    <!-- <p>"2020年1月11日，当我们俩还是几个月大的宝宝时，我们被挂在了海鲜市场。麻麻刷到了我们，被我们毛茸茸、圆溜溜的模样迷倒了！她当天就急匆匆冒着大雨把我们接回了家。从那一天起，我们就和麻麻一起生活啦！吃得饱、住得大，麻麻每天还放我们出来玩耍30分钟，我们特别喜欢蹦床、在枕头上撒尿、在饭桌上拉屎，我们爱麻麻！"
+                    </p> -->
+                   <p>2020年1月11日，当我们俩还是小不点时，被挂在了热闹的海鲜市场。那天，麻麻偶然刷到了我们，被我们那毛茸茸、圆乎乎的模样给迷住啦！她冒着大雨，急匆匆地赶来把我们接回了家。
+                    从那天起，我们就和麻麻一起生活啦🏡！我们吃得饱饱的，住得舒舒服服的，每天还有30分钟的自由玩耍时间！我们超级喜欢在床上蹦来蹦去，偶尔在枕头上留个“小标记”，或者在饭桌上留下我们的小秘密💩。尽管有时候会调皮捣蛋，但我们真的很爱很爱麻麻！我们是世界上最幸福的小龙猫啦！💕
                     </p>
+
                     <!-- <a href="" class="btn btn-secondary mt-2">更多</a> -->
                 </div>
                 <div class="col-lg-4" style="min-height: 400px;">
@@ -218,7 +224,7 @@
             <div class="row bg-primary m-0">
                 <div class="col-md-6 px-0" style="min-height: 500px;">
                     <div class="position-relative h-100">
-                        <video class="position-absolute w-100 h-100" frameborder=0 'allowfullscreen' style="object-fit: cover;" controls poster="{{ minio_url }}/{{ bucket }}/dragongamevideocover.jpg">
+                        <video  class="position-absolute w-100 h-100" frameborder=0 'allowfullscreen' style="object-fit: cover;" controls poster="{{ minio_url }}/{{ bucket }}/dragongamevideocover.jpg">
                             <source src="{{ minio_url }}/{{ bucket }}/dragongamevideo.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
@@ -665,6 +671,7 @@
 </html>
 
 <script>
+ 
     // 获取所有 .abstract-text 元素
     // window.onload = function() {
    
